@@ -21,10 +21,11 @@ export default class login extends Component {
       <View style={styles.container}>
         <View>
             <Image source = {require('../images/logo.png')} style = {styles.logo}></Image>
-            <Text style = {styles.titles}>Tindog</Text>
+            <Text style = {styles.titles}>Tindog   </Text>
             <Input placeholder = "Usuario"/>
             <Input placeholder = "Contraseña" secureTextEntry = {true}/>
-            <Boton onPress = {() => this._prueba()} texto = "Iniciar"/> 
+            <View style={styles.RegisterContainer}>
+            <Boton onPress = {() => this._prueba()} texto = "Entrar"/> 
             <Boton onPress = {() => this._otraFuncion()} texto = "Registarme"/>
             {/* <View style = {styles.prueba1}>
               <TouchableOpacity style = {styles.gl}><Text>Google</Text></TouchableOpacity>
@@ -32,6 +33,7 @@ export default class login extends Component {
             </View> */}
             <Text style = {styles.texto}>Crear cuenta</Text> 
             <Text style = {styles.texto}>¿Olvidaste tu contraseña?</Text>
+            </View>
         </View>
       </View>
     );

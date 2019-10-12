@@ -4,7 +4,10 @@ import login from '../screens/login';
 import userProfile from '../screens/perfilUsuario'
 
 export default createAppContainer(createSwitchNavigator({
-    userProfile: userProfile,
+    
     login: login,
     registro: registro,
+    
+    userProfile: userProfile,
+    
 }));

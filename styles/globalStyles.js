@@ -12,12 +12,24 @@ const styles = StyleSheet.create({
         alignItems: "center",
         backgroundColor: fondo,
     },
+    RegisterContainer:{
+        marginTop:40,
+        marginBottom:1,
+        backgroundColor: fondo,
+    },
     titles: {
         color: titulos,
         fontWeight: 'bold',
         fontSize: 30,
         alignSelf: "center",
-        marginBottom: 120,
+        marginBottom: 80,
+    },
+    Registertitles: {
+        color: titulos,
+        fontWeight: 'bold',
+        fontSize: 30,
+        alignSelf: "center",
+        marginBottom: 60,
     },
     logo:{
         width: 165,
