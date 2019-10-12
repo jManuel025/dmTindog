@@ -7,14 +7,17 @@ import styles from '../styles/globalStyles'
 export default class userProfile extends Component {
     render() {
       return (
-        <ScrollView contentContainerStyle={styles.container}> 
+        <View contentContainerStyle={styles.container}> 
           <Image source = {require('../images/usuario.png')} style = {styles.profilePhoto}></Image>
           <View style = {styles.contBotonCirc}>
             <CircleButton/>
             <CircleButton/>
             <CircleButton/>
           </View>
-        </ScrollView>
+          <ScrollView contentContainerStyle={styles.container}>
+            
+          </ScrollView>
+        </View>
       );
     }
 }
