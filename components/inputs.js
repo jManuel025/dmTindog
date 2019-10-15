@@ -18,7 +18,7 @@ export default class Input extends Component {
         margin: 5,
         borderRadius: 20,
         width: 300,
-        height: 35,
+        height: 41.5,
         textAlign: 'center',
         alignSelf: 'center'
       }
