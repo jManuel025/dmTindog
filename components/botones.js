@@ -5,7 +5,7 @@ export default class Boton extends Component {
     render() {
       return (
         // con onPress se tomará la función que se pase en el archivo que se llame el boton
-        <TouchableOpacity style = {styles.boton} onPress = {this.props.onPress} onPress={Keyboard.dismiss}>  
+        <TouchableOpacity style = {styles.boton} onPress={this.props.onPress}>  
              {/* con texto se el texto que se pase en el archivo que se llame el boton */}
             <Text style = {styles.textoBoton}> {this.props.texto}</Text>
         </TouchableOpacity>
