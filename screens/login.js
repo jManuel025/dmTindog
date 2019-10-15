@@ -25,7 +25,7 @@ export default class login extends Component {
             <Input placeholder = "Usuario"/>
             <Input placeholder = "Contraseña" secureTextEntry = {true}/>
             <Boton onPress = {() => this._prueba()} texto = "Iniciar"/> 
-            <Boton onPress = {() => this._otraFuncion()} texto = "Registarme"/>
+            <Boton onPress = {() => this.props.navigation.navigate('registro')} texto = "Registarme"/>
             {/* <View style = {styles.prueba1}>
               <TouchableOpacity style = {styles.gl}><Text>Google</Text></TouchableOpacity>
               <TouchableOpacity style = {styles.fb}><Text>Facebook</Text></TouchableOpacity>

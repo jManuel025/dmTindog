@@ -4,8 +4,11 @@ import { StyleSheet } from 'react-native';
 const fondo = '#F8FBFB';
 const titulos = '#707070';
 const texto = '#BDC6CD';
+const textomDark = '#C4C4C4';
+const textoDark = '#888F94';
 
 const styles = StyleSheet.create({
+    // General
     container:{
         flex: 1,
         justifyContent: "center",
@@ -29,19 +32,57 @@ const styles = StyleSheet.create({
         color: texto,
         fontWeight: 'bold',
     },
-    profilePhoto:{
-        position: 'absolute',
-        top: 50,
-        width: 150,
-        height: 150,
-    },
-    contBotonCirc:{
-        // flex: .5,
-        flexDirection: "row",
-        justifyContent: 'space-around',
-        // backgroundColor: '#000',
+    // PerfilUsuario
+    contSup:{
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
         width: '100%',
     },
+        profilePhoto:{
+            width: 150,
+            height: 150,
+            margin: 20,
+            marginBottom: 0,
+        },
+        username:{
+            fontSize: 20,
+            color: textoDark,
+            fontWeight: 'bold',
+            margin: 5,
+        },
+        contBotonCirc:{
+            flex: 1,
+            flexDirection: "row",
+            justifyContent: 'space-around',
+            alignItems: 'center',
+            width: '100%',
+        },
+            contBtnTxt:{
+                alignItems: 'center',
+            },
+            btnName:{
+                color: '#C4C4C4',
+                fontWeight: 'bold',
+                margin: 5,
+            },
+    contInf:{
+        flex: 1.4,
+        width: '100%',
+    },
+        dogContainer:{
+            flex: 1,
+            flexDirection: 'column',
+            width: '100%',
+            padding: 10,
+        },
+        subtitle:{
+            color: textoDark,
+            fontWeight: 'bold',
+            fontSize: 15,
+            margin: 10,
+        },
+          
     //PRUEBAS --> Botones de login en API
     // prueba1:{
     //     backgroundColor: "#56af54",
