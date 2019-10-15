@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { Text, StyleSheet, TouchableOpacity,Keyboard} from 'react-native'
 
-export default class Boton extends Component {
+export default class BotonTrans extends Component {
     render() {
       return (
         // con onPress se tomará la función que se pase en el archivo que se llame el boton
-        <TouchableOpacity style = {styles.boton} onPress={this.props.onPress}>  
+        <TouchableOpacity style = {styles.boton} onPress = {this.props.onPress} >  
              {/* con texto se el texto que se pase en el archivo que se llame el boton */}
             <Text style = {styles.textoBoton}> {this.props.texto}</Text>
         </TouchableOpacity>
@@ -16,18 +16,18 @@ export default class Boton extends Component {
   const styles = new StyleSheet.create({
       boton: {
           justifyContent: "center",
-          backgroundColor: '#FF3980',
-          padding: 7.5,
-          margin: 9.0,
-          borderRadius: 20,
+          backgroundColor:"#F8FBFB",
+          padding: 0.0,
+          margin: 0.000,
+          
           width: 300,
-          height: 40,
+          height: 30,
           alignSelf: 'center'
       },  
       textoBoton:{
-          color: '#FFF',
+          color: '#BDC6CD',
           fontWeight: 'bold',
-          fontSize: 15,
+          fontSize: 13,
           textAlign: 'center',
       }
   })
