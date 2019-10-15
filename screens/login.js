@@ -26,7 +26,7 @@ export default class login extends Component {
             <Input placeholder = "Contraseña" secureTextEntry = {true}/>
             <View style={styles.RegisterContainer}>
             <Boton onPress = {() => this._prueba()} texto = "Entrar"/> 
-            <Boton onPress = {() => this._otraFuncion()} texto = "Registarme"/>
+            
             {/* <View style = {styles.prueba1}>
               <TouchableOpacity style = {styles.gl}><Text>Google</Text></TouchableOpacity>
               <TouchableOpacity style = {styles.fb}><Text>Facebook</Text></TouchableOpacity>

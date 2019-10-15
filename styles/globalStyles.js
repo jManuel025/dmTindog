@@ -39,6 +39,7 @@ const styles = StyleSheet.create({
     texto:{
         textAlign: "center",
         color: texto,
+        margin:7.5,
         fontWeight: 'bold',
     },
     profilePhoto:{
