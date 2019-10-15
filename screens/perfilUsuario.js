@@ -5,7 +5,7 @@ import Card from '../components/cardDog'
 //Estilos
 import styles from '../styles/globalStyles'
 
-export default class userProfile extends Component {
+export default class perfilUsuario extends Component {
   
     render() {
       return (
