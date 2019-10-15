@@ -26,7 +26,7 @@ export default class login extends Component {
       <View style={styles.container}>
         <View>
             <Image source = {require('../images/logo.png')} style = {styles.logo}></Image>
-            <Text style = {styles.titles}>Tindog </Text>
+            <Text style = {styles.titles}>Tindog</Text>
             <Input placeholder = "Usuario"/>
             <Input placeholder = "Contraseña" secureTextEntry = {true}/>
             <View style={styles.RegisterContainer}>
