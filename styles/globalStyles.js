@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
         elevation: 4,
     },
     contSup:{
-        flex: .5,
+        flex: .6,
         justifyContent: "center",
         alignItems: "center",
         width: '100%',
@@ -99,7 +99,6 @@ const styles = StyleSheet.create({
             justifyContent: 'space-around',
             alignItems: 'center',
             width: '100%',
-            // backgroundColor: '#000',
         },
             contBtnTxt:{
                 alignItems: 'center',
@@ -117,7 +116,7 @@ const styles = StyleSheet.create({
             flexDirection: 'column',
             width: '100%',
             padding: 10,
-            paddingTop: 0,
+            // paddingTop: 0,
             paddingBottom: 90,
         },
         subtitle:{
@@ -126,31 +125,9 @@ const styles = StyleSheet.create({
             fontSize: 15,
             margin: 10,
             padding: 10,
-            paddingBottom: 0,
             alignSelf: 'flex-start',
-            // backgroundColor: 'black',
             width: '100%',
         },
-          
-    //PRUEBAS --> Botones de login en API
-    // prueba1:{
-    //     backgroundColor: "#56af54",
-    //     flexDirection: "row",
-    //     justifyContent: "space-around",
-    //     width: 300,
-    //     alignSelf: "center",
-    // },
-    // gl:{
-    //     backgroundColor: "#000",
-    //     width: 100,
-    // },
-    // fb:{
-    //     backgroundColor: "#000",
-    //     width: 100,
-    // // },
-    // userProfile:{
-    //     backgroundColor: "#6f8926",
-    // },  
 });
 
 export default styles;

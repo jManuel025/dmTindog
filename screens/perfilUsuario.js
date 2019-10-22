@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { View , Text, Image, ScrollView, TouchableOpacity } from 'react-native';
 import Card from '../components/cardDog';
 import styles from '../styles/globalStyles';
-// import { Icon } from 'react-native-elements';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default class perfilUsuario extends Component {
 // No se bien en pantallas más chicas --arreglar contBotonCirc--
@@ -11,7 +11,7 @@ export default class perfilUsuario extends Component {
         <View style = {styles.container}> 
           <View style = {styles.contSup}>
             <TouchableOpacity style = {styles.settings}>
-              {/* <Icon name = 'undo' color = '#888F94'/> */}
+              <Icon name = 'undo' color = '#888F94'/>
             </TouchableOpacity>
             <Image source = {require('../images/usuario.png')} style = {styles.profilePhoto}/>
             <Text style = {styles.username}>jManuel</Text>
@@ -37,14 +37,10 @@ export default class perfilUsuario extends Component {
               <Card imageUri = {require('../images/dog.jpg')} onPress = {() => this.props.navigation.navigate('perfilPerro')}/>
               <Card imageUri = {require('../images/dog.jpg')} onPress = {() => this.props.navigation.navigate('perfilPerro')}/>
               <Card imageUri = {require('../images/dog.jpg')} onPress = {() => this.props.navigation.navigate('perfilPerro')}/>
-              <Card imageUri = {require('../images/dog.jpg')} onPress = {() => this.props.navigation.navigate('perfilPerro')}/>
-              <Card imageUri = {require('../images/dog.jpg')} onPress = {() => this.props.navigation.navigate('perfilPerro')}/>
-              <Card imageUri = {require('../images/dog.jpg')} onPress = {() => this.props.navigation.navigate('perfilPerro')}/>
-              <Card imageUri = {require('../images/dog.jpg')} onPress = {() => this.props.navigation.navigate('perfilPerro')}/>
             </ScrollView>
           </View>
           <TouchableOpacity style = {styles.floatButton}>
-            {/* <Icon name='undo' color='#fff'/> */}
+            <Icon name='undo' color='#fff'/>
           </TouchableOpacity>
         </View>
       );

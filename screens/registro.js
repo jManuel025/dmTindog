@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { View , Text, Image, TouchableOpacity } from 'react-native';
+import { View , Text, Image } from 'react-native';
 // Componentes
 import Boton from '../components/botones'
 import BotonTrans from '../components/botonesTrans'

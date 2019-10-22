@@ -11,17 +11,21 @@ render() {
       <View style = {styles.container}>
         <View style = {styles.contSup}>
           <Image source = {require('../images/perro.png')} style = {styles.profilePhoto}/>
-          <Text style = {styles.username}>jManuel</Text>
+          <Text style = {styles.username}>Firulais</Text>
           <View style = {styles.contBotonCirc}>
             <View style = {styles.contBtnTxt}>
-              <CircleButton icono = 'edit' icolor = '#00aced'/>
-              <Text style = {styles.btnName}>Editar</Text>
+              {/* <CircleButton icono = 'edit' icolor = '#00aced'/> */}
+              {/* <Text style = {styles.btnName}>Editar</Text> */}
             </View>
           </View>
         </View>
         <View style = {styles.contInf}>
           <ScrollView contentContainerStyle={styles.dogContainer}>
+            <CardInfo seccion = 'Descripción'/>
+            <CardInfo seccion = 'Sexo'/>
             <CardInfo seccion = 'Raza'/>
+            <CardInfo seccion = 'Tamaño'/>
+            <CardInfo seccion = 'Características'/>
           </ScrollView>
         </View>
       </View>
