@@ -1,20 +1,12 @@
 import React, {Component} from 'react';
-import {Image, Text, StyleSheet, View, TouchableOpacity} from 'react-native';
+import { Text, StyleSheet, View, TouchableOpacity} from 'react-native';
 
-export default class Card extends Component {
+export default class CardInfo extends Component {
   render() {
     return (
       <View style={styles.mainCard}>
-        <View style={styles.imageCard}>
-          <Image source = {this.props.imageUri} style = {styles.dogPhoto}/>
-        </View>
-        <View style={styles.infoCard}>
-          <Text style = {styles.campos}>Nombre: </Text>
-          <Text style = {styles.campos}>Raza: </Text>
-          <Text style = {styles.campos}>Edad: </Text>
-        </View>
+        <Text>{this.props.seccion}</Text>
         <TouchableOpacity onPress = {this.props.onPress}>
-          <Text>Editar</Text>
         </TouchableOpacity>
       </View>
     );
@@ -25,11 +17,12 @@ const styles = new StyleSheet.create({
   mainCard: {
     flexDirection: 'row',
     width: '95%',
-    height: 125,
+    height: 'auto',
     borderRadius: 5,
     backgroundColor: '#fff',
     alignSelf: "center",
     margin: 5,
+    padding: 10,
     shadowColor: '#000',
     shadowOffset: {width: 0, height: 0},
     shadowOpacity: 0.8,
