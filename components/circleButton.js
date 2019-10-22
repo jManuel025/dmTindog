@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
-import { Text, StyleSheet, TouchableOpacity, Image} from 'react-native'
+import { StyleSheet, TouchableOpacity, Image} from 'react-native'
 
 export default class CircleButton extends Component {
     render() {
       return (
-        <TouchableOpacity style = {styles.circularButton}>
-            <Image source = {require('../images/usuario.png')} style = {styles.circBImage}></Image>
+        <TouchableOpacity style = {styles.circularButton} onPress = {this.props.onPress}>
         </TouchableOpacity>
       )
     }
@@ -19,10 +18,10 @@ export default class CircleButton extends Component {
           backgroundColor: '#fff',
           justifyContent: "center",
           alignItems: "center",
-        //   shadowOffset:{  width: 10,  height: 10,  },
-        //   shadowColor: 'black',
-        //   shadowOpacity: 10,
-        //   shadowRadius: 10,
+          shadowColor: '#000',
+          shadowOffset: {width: 0, height: 0},
+          shadowOpacity: 0.8,
+          elevation: 4,
       },
       circBImage:{
           width: 30,
