@@ -12,7 +12,7 @@ export default createBottomTabNavigator({
         navigationOptions: {
             tabBarLabel: "Perfil",
             tabBarIcon: ({tintColor}) => (
-                <Icon name="glass" size={20} color={tintColor}/>
+                <Icon name="user" size={20} color={tintColor}/>
             ),
         }
     },
@@ -21,7 +21,7 @@ export default createBottomTabNavigator({
         navigationOptions: {
             tabBarLabel: "Inicio",
             tabBarIcon: ({tintColor}) => (
-                <Icon name="user" size={20} color={tintColor}/>
+                <Icon name="paw" size={20} color={tintColor}/>
             ),
         }
     },
@@ -30,14 +30,14 @@ export default createBottomTabNavigator({
         navigationOptions: {
             tabBarLabel: "Mensajes",
             tabBarIcon: ({tintColor}) => (
-                <Icon name="search" size={20} color={tintColor}/>
+                <Icon name="comments" size={20} color={tintColor}/>
             ),
         }
     },   
 },
 {
     tabBarOptions: {
-        activeTintColor: '#3498D7'
+        activeTintColor: '#FF3980'
     }
 });
 

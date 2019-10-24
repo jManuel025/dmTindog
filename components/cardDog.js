@@ -13,9 +13,9 @@ export default class Card extends Component {
           <Text style = {styles.campos}>Raza: </Text>
           <Text style = {styles.campos}>Edad: </Text>
         </View>
-        <TouchableOpacity onPress = {this.props.onPress}>
+        {/* <TouchableOpacity onPress = {this.props.onPress}>
           <Text>Editar</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
     );
   }

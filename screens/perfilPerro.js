@@ -21,11 +21,13 @@ render() {
         </View>
         <View style = {styles.contInf}>
           <ScrollView contentContainerStyle={styles.dogContainer}>
-            <CardInfo seccion = 'Descripción'/>
+            <CardInfo seccion = 'Descripción' contenido = ' desacascadjksmc ksancka sklasnd kas oasdklas ksa ksadesacascadjksmc ksancka sklasnd kas oasdklas ksa ksadesacascadjksmc ksancka sklasnd kas oasdklas ksa ksadesacascadjksmc ksancka sklasnd kas oasdklas ksa ksadesacascadjksmc ksancka sklasnd kas oasdklas ksa ksa'/>
             <CardInfo seccion = 'Sexo'/>
             <CardInfo seccion = 'Raza'/>
             <CardInfo seccion = 'Tamaño'/>
-            <CardInfo seccion = 'Características'/>
+            <CardInfo seccion = 'Edad'/>
+            <CardInfo seccion = 'Vacunas'/>
+            <CardInfo seccion = 'Certificados'/>
           </ScrollView>
         </View>
       </View>

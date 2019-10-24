@@ -3,6 +3,7 @@ import { View , Text, Image, ScrollView, TouchableOpacity } from 'react-native';
 import Card from '../components/cardDog';
 import styles from '../styles/globalStyles';
 import Icon from 'react-native-vector-icons/FontAwesome';
+// import { Icon } from 'react-native-elements'
 
 export default class perfilUsuario extends Component {
 // No se bien en pantallas más chicas --arreglar contBotonCirc--
@@ -11,24 +12,13 @@ export default class perfilUsuario extends Component {
         <View style = {styles.container}> 
           <View style = {styles.contSup}>
             <TouchableOpacity style = {styles.settings}>
-              <Icon name = 'undo' color = '#888F94'/>
+              <Icon name='cog' color='#888F94' size={25}/>
+            </TouchableOpacity>
+            <TouchableOpacity style = {styles.edit}>
+              <Icon name='edit' color='#888F94' size={25}/>
             </TouchableOpacity>
             <Image source = {require('../images/usuario.png')} style = {styles.profilePhoto}/>
             <Text style = {styles.username}>jManuel</Text>
-            {/* <View style = {styles.contBotonCirc}>
-              <View style = {styles.contBtnTxt}>
-                <CircleButton icono = 'edit' icolor = '#00aced'/>
-                <Text style = {styles.btnName}>Agregar</Text>
-              </View>
-              <View style = {styles.contBtnTxt}>
-                <CircleButton icono = 'edit' icolor = '#00aced'/>
-                <Text style = {styles.btnName}>Editar</Text>
-              </View>
-              <View style = {styles.contBtnTxt}>
-                <CircleButton icono = 'edit' icolor = '#00aced'/>
-                <Text style = {styles.btnName}>Ajustes</Text>
-              </View>
-            </View> */}
             <Text style = {styles.subtitle}>Mis perros</Text>
           </View>
           <View style = {styles.contInf}>
@@ -40,7 +30,7 @@ export default class perfilUsuario extends Component {
             </ScrollView>
           </View>
           <TouchableOpacity style = {styles.floatButton}>
-            <Icon name='undo' color='#fff'/>
+            <Icon name='plus' color='#fff' size={20}/>
           </TouchableOpacity>
         </View>
       );

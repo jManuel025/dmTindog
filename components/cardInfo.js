@@ -5,9 +5,10 @@ export default class CardInfo extends Component {
   render() {
     return (
       <View style={styles.mainCard}>
-        <Text>{this.props.seccion}</Text>
-        <TouchableOpacity onPress = {this.props.onPress}>
-        </TouchableOpacity>
+        <Text style = {styles.seccion}>{this.props.seccion}</Text>
+        <Text style = {styles.contenido}>{this.props.contenido}</Text>
+        {/* <TouchableOpacity onPress = {this.props.onPress}>
+        </TouchableOpacity> */}
       </View>
     );
   }
@@ -44,5 +45,13 @@ const styles = new StyleSheet.create({
     },
       campos:{
         color: '#888F94',
+      },
+      seccion:{
+        fontWeight: 'bold',
+        color: '#888F94',
+      },
+      contenido:{
+        width: '80%',
+        textAlign: "justify",
       }
 });
