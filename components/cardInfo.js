@@ -1,13 +1,16 @@
 import React, {Component} from 'react';
-import { Text, StyleSheet, View, TouchableOpacity} from 'react-native';
+import { Text, StyleSheet, View } from 'react-native';
 
 export default class CardInfo extends Component {
   render() {
     return (
       <View style={styles.mainCard}>
-        <Text>{this.props.seccion}</Text>
-        <TouchableOpacity onPress = {this.props.onPress}>
-        </TouchableOpacity>
+        <View>
+          <Text style = {styles.titleSeccion}>{this.props.seccion}</Text>
+        </View>
+        <View>
+          <Text style={styles.conText}>{this.props.contenido}</Text>
+        </View>
       </View>
     );
   }
@@ -15,7 +18,7 @@ export default class CardInfo extends Component {
 
 const styles = new StyleSheet.create({
   mainCard: {
-    flexDirection: 'row',
+    flexDirection: 'column',
     width: '95%',
     height: 'auto',
     borderRadius: 5,
@@ -37,12 +40,20 @@ const styles = new StyleSheet.create({
         borderTopLeftRadius: 5,
         borderBottomLeftRadius: 5,
       },
-    infoCard: {
-      flex: 0.7,
-      padding: 10,
-      justifyContent: 'space-around',
-    },
+    // infoCard: {
+    //   flex: 0.7,
+    //   padding: 10,
+    //   justifyContent: 'space-around',
+    // },
       campos:{
         color: '#888F94',
+      },
+      titleSeccion:{
+        fontWeight: 'bold',
+        fontSize: 16,
+        color: '#888F94',
+      },
+      conText:{
+        textAlign: 'justify',
       }
 });

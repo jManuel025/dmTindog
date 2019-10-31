@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import { View , Text, Image, ScrollView} from 'react-native';
-import CircleButton from '../components/circleButton';
 import CardInfo from '../components/cardInfo';
 import styles from '../styles/globalStyles';
 
@@ -14,18 +13,18 @@ render() {
           <Text style = {styles.username}>Firulais</Text>
           <View style = {styles.contBotonCirc}>
             <View style = {styles.contBtnTxt}>
-              {/* <CircleButton icono = 'edit' icolor = '#00aced'/> */}
-              {/* <Text style = {styles.btnName}>Editar</Text> */}
             </View>
           </View>
         </View>
         <View style = {styles.contInf}>
           <ScrollView contentContainerStyle={styles.dogContainer}>
-            <CardInfo seccion = 'Descripción'/>
+            <CardInfo seccion = 'Descripción' contenido = 'aqui va el texto'/>
             <CardInfo seccion = 'Sexo'/>
             <CardInfo seccion = 'Raza'/>
             <CardInfo seccion = 'Tamaño'/>
-            <CardInfo seccion = 'Características'/>
+            <CardInfo seccion = 'Edad'/>
+            <CardInfo seccion = 'Vacunas'/>
+            <CardInfo seccion = 'Certificados'/>
           </ScrollView>
         </View>
       </View>
