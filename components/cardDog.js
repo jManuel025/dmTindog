@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import {Image, Text, StyleSheet, View, TouchableOpacity} from 'react-native';
+import {withNavigation} from 'react-navigation' //para que se pueda navegar a pantallas que no estén en la ruta main o tab 
 
-export default class Card extends Component {
+class Card extends Component {
   render() {
     return (
-      <View style={styles.mainCard}>
+      <TouchableOpacity style={styles.mainCard} onPress={this.props.onPress}>
         <View style={styles.imageCard}>
           <Image source = {this.props.imageUri} style = {styles.dogPhoto}/>
         </View>
@@ -13,13 +14,11 @@ export default class Card extends Component {
           <Text style = {styles.campos}>Raza: </Text>
           <Text style = {styles.campos}>Edad: </Text>
         </View>
-        {/* <TouchableOpacity onPress = {this.props.onPress}>
-          <Text>Editar</Text>
-        </TouchableOpacity> */}
-      </View>
+      </TouchableOpacity>
     );
   }
 }
+export default withNavigation(Card)
 
 const styles = new StyleSheet.create({
   mainCard: {
@@ -51,5 +50,8 @@ const styles = new StyleSheet.create({
     },
       campos:{
         color: '#888F94',
+      },
+      editdog:{
+        padding:10,
       }
 });

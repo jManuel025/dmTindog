@@ -1,10 +1,9 @@
 import React from 'react';
 import { createBottomTabNavigator } from 'react-navigation-tabs'
+import Icon from 'react-native-vector-icons/FontAwesome';
 import perfilUsuario from '../screens/perfilUsuario';
 import mensajes from '../screens/mensajes';
 import perfilPerro from '../screens/perfilPerro'; 
-// import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
-import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default createBottomTabNavigator({  
     perfilUsuario: {
@@ -40,26 +39,3 @@ export default createBottomTabNavigator({
         activeTintColor: '#FF3980'
     }
 });
-
-// export default createMaterialBottomTabNavigator(
-//     {
-//         perfilUsuario:{
-//             screen: perfilUsuario,
-//             tabBarIcon: <Icon name='glass'/>
-//         },
-//         // perfilPerro: {
-//         //     screen: perfilPerro,
-//         //     tabBarIcon: <Icon name='glass'/>
-//         // },
-//         mensajes: {
-//             screen: mensajes,
-//             tabBarIcon: <Icon name='glass'/>
-//         },
-//     },
-//     {
-//         initialRouteName: 'mensajes',
-//         activeColor: '#f0edf6',
-//         inactiveColor: '#3e2465',
-//         barStyle: { backgroundColor: '#694fad' },
-//     }
-// );
