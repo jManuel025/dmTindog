@@ -139,6 +139,30 @@ const styles = StyleSheet.create({
             alignSelf: 'flex-start',
             width: '100%',
         },
+    barTitle:{
+        position: 'absolute',
+        top: 0,
+        width: '100%',
+        height: 60,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderBottomWidth:2,
+        borderBottomColor:"#e3e3d3",
+    },
+        titleBar:{
+            color: textoDark,
+            fontWeight: 'bold',
+            fontSize: 20,
+            margin: 10,
+            padding: 10,
+        },
+    inputRegistro:{
+        width: '85%',
+        borderBottomWidth: 2,
+        borderBottomColor: secundario,
+        paddingBottom: -5,
+        margin: 10,
+    }
 });
 
 export default styles;

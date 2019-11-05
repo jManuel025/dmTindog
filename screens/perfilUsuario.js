@@ -10,7 +10,7 @@ export default class perfilUsuario extends Component {
       return (
         <View style = {styles.container}> 
           <View style = {styles.contSup}>
-            <TouchableOpacity style = {styles.settings}>
+            <TouchableOpacity style = {styles.settings} onPress = {() => this.props.navigation.navigate('configuracion')}>
               <Icon name='cog' color='#888F94' size={25}/>
             </TouchableOpacity>
             <TouchableOpacity style = {styles.edit} onPress = {() => {this.props.navigation.navigate('formUsuario')}}>

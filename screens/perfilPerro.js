@@ -21,7 +21,6 @@ render() {
             <CardInfo seccion = 'Descripción' contenido = 'aqui va el texto'/>
             <CardInfo seccion = 'Sexo'/>
             <CardInfo seccion = 'Raza'/>
-            <CardInfo seccion = 'Tamaño'/>
             <CardInfo seccion = 'Edad'/>
             <CardInfo seccion = 'Vacunas'/>
             <CardInfo seccion = 'Certificados'/>
