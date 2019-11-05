@@ -10,7 +10,7 @@ const Users = [
   { id: "4", uri: require('../images/dog.jpg') },
   { id: "5", uri: require('../images/dog.jpg') },
 ]
-export default class mensajes extends Component {
+export default class principal extends Component {
 
   constructor() {
     super()

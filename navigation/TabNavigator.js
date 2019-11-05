@@ -3,9 +3,7 @@ import { createBottomTabNavigator } from 'react-navigation-tabs'
 import Icon from 'react-native-vector-icons/FontAwesome';
 import perfilUsuario from '../screens/perfilUsuario';
 import mensajes from '../screens/mensajes';
-import perfilPerro from '../screens/perfilPerro'; 
 import principal from '../screens/principal';
-import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default createBottomTabNavigator({  
     perfilUsuario: {
@@ -17,7 +15,7 @@ export default createBottomTabNavigator({
             ),
         }
     },
-    perfilPerro: {
+    principal: {
         screen: principal,
         navigationOptions: {
             tabBarLabel: "Inicio",
