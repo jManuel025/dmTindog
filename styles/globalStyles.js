@@ -74,8 +74,8 @@ const styles = StyleSheet.create({
         position: 'absolute',
         bottom: 20,
         right: 20,
-        width: 45,
-        height: 45,
+        width: 50,
+        height: 50,
         backgroundColor: secundario,
         justifyContent: 'center',
         alignItems: 'center',
@@ -158,11 +158,17 @@ const styles = StyleSheet.create({
         },
     inputRegistro:{
         width: '85%',
-        borderBottomWidth: 2,
-        borderBottomColor: secundario,
-        paddingBottom: -5,
+        borderWidth: 1,
+        paddingLeft: 15,
+        paddingRight: 15,
         margin: 10,
-    }
+        borderRadius: 5,
+        borderColor: '#CDCDCD',
+    },
+    contSelect:{
+        width: '85%',
+        paddingLeft: 15,
+    },
 });
 
 export default styles;
