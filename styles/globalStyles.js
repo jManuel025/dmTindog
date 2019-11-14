@@ -16,6 +16,15 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: fondo,
+    },container2:{
+        
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: fondo,
+        marginBottom:70
+    },back:{
+        marginRight:340,
+        marginTop:20
     },
     RegisterContainer:{
         marginTop:40,
@@ -96,6 +105,12 @@ const styles = StyleSheet.create({
             height: 150,
             margin: 40,
             marginBottom: 0,
+        },
+        profilePhoto2:{
+            width: 150,
+            height: 150,
+            margin: 0,
+            marginTop: -31,
         },
         username:{
             fontSize: 20,
