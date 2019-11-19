@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { View , Text, Image, ScrollView,StyleSheet, TouchableOpacity} from 'react-native';
 import { ListItem } from "react-native-elements"
+import Icon from 'react-native-vector-icons/FontAwesome'
 // import Boton from '../components/botones'
 
 export default class configuracion extends Component {
@@ -47,6 +48,9 @@ export default class configuracion extends Component {
         return(
             <View style={styles.container}>
                 <View style={styles.header}>
+                <TouchableOpacity style = {styles.back} onPress = {() => {this.props.navigation.navigate('perfilUsuario')}}>
+                    <Icon name='angle-left' color='#FF3980' size={55}/>
+                </TouchableOpacity>
                     <Text style={styles.texto}>Configuración</Text>
                 </View>
                 <View >
@@ -90,11 +94,12 @@ const styles=StyleSheet.create({
         backgroundColor:"#FCFCFC"
     },header:{
         width:"100%",
-        height:60,
+        height:65,
         borderBottomWidth:2,
         borderBottomColor:"#e3e3d3",
+        flexDirection:"row"
     },texto:{
-        textAlign: "center",
+        alignSelf: "center",
         color: '#888F94',
         margin:17.5,
         fontWeight: 'bold',
@@ -132,6 +137,9 @@ const styles=StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 18,
         textAlign: 'center',
+    },back:{
+        marginRight:10,
+        marginLeft:10
     }
     
 })

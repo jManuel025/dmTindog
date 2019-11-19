@@ -17,7 +17,7 @@ export default class perfilUsuario extends Component {
               <Icon name='edit' color='#888F94' size={25}/>
             </TouchableOpacity>
             <Image source = {require('../images/usuario.png')} style = {styles.profilePhoto}/>
-            <Text style = {styles.username}>jManuel</Text>
+            <Text style = {styles.username}>jManuel  </Text>
             <Text style = {styles.subtitle}>Mis perros</Text>
           </View>
           <View style = {styles.contInf}>
