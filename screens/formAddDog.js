@@ -38,10 +38,10 @@ export default class addPerro extends Component {
               <TextInput placeholder='Vacunas' style={styles.inputRegistro}/>
               <TextInput placeholder='Certificados' style={styles.inputRegistro}/>
               <View style = {styles.prueba}>
-                <TouchableOpacity style = {styles.btnform}>
+                <TouchableOpacity style = {styles.btnform} onPress = {() => this.props.navigation.navigate('perfilUsuario')}>
                   <Text style = {styles.btnftext}>Cancelar</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style = {styles.btnform}>
+                <TouchableOpacity style = {styles.btnform} onPress = {() => this.props.navigation.navigate('perfilUsuario')}>
                   <Text style = {styles.btnftext}>Aceptar</Text>
                 </TouchableOpacity>
               </View>
