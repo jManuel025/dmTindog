@@ -83,8 +83,8 @@ const styles = StyleSheet.create({
         position: 'absolute',
         bottom: 20,
         right: 20,
-        width: 45,
-        height: 45,
+        width: 50,
+        height: 50,
         backgroundColor: secundario,
         justifyContent: 'center',
         alignItems: 'center',
@@ -173,11 +173,66 @@ const styles = StyleSheet.create({
         },
     inputRegistro:{
         width: '85%',
-        borderBottomWidth: 2,
-        borderBottomColor: secundario,
-        paddingBottom: -5,
+        borderWidth: 1,
+        paddingLeft: 15,
+        paddingRight: 15,
         margin: 10,
-    }
+        borderRadius: 5,
+        borderColor: '#CDCDCD',
+    },
+    contSelect:{
+        width: '85%',
+        paddingTop: 15,
+    },
+    prueba:{
+        flexDirection: 'row',
+        justifyContent: "space-around",
+        width: '85%',
+        paddingTop: 15,
+        paddingBottom: 15,
+    },
+    prueba2:{
+        paddingTop: 20,
+        paddingBottom: 100,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    prueba3:{
+        position: 'absolute',
+        top: 60,
+        height: '100%',
+        width: '100%',
+    },
+    addphoto:{
+        backgroundColor: secundario,
+        width: 120,
+        height: 120,
+        borderRadius: 75,
+        marginBottom: 5, 
+        justifyContent: "center",
+        alignItems: 'center',
+    },
+        subadd:{
+            color: textoDark,
+            paddingBottom: 15,
+        },
+        select:{
+            marginTop: -15
+        },
+        btnform:{
+            width: '45%',
+            justifyContent: 'center',
+            alignItems: 'center',
+            backgroundColor: pricipal,
+            height: 40,
+            borderRadius: 20,
+            padding: 7.5,
+        },
+            btnftext:{
+                color: '#fff',
+                fontWeight: 'bold'
+            }
+
 });
 
 export default styles;

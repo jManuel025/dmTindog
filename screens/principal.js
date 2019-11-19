@@ -108,14 +108,14 @@ export default class principal extends Component {
         return (
           <Animated.View
             {...this.PanResponder.panHandlers}
-            key={item.id} style={[this.rotateAndTranslate, { height: SCREEN_HEIGHT - 225, width: SCREEN_WIDTH, padding: 0, position: 'absolute',marginLeft: -210,marginTop: 80, }]}>
+            key={item.id} style={[this.rotateAndTranslate, { height: SCREEN_HEIGHT - 225, width: SCREEN_WIDTH - 10, padding: 0, position: 'absolute',marginLeft: -210,marginTop: 80, }]}>
             <Animated.View style={{ opacity: this.likeOpacity, transform: [{ rotate: '-30deg' }], position: 'absolute', top: 50, left: 40, zIndex: 1000 }}>
-              <Text style={{ borderWidth: 1, borderColor: 'white', color: 'white',backgroundColor:'green', fontSize: 42, fontWeight: '900', padding: 10 }}>LIKE</Text>
+              <Text style={{ borderWidth: 2, borderColor: 'white', color: 'white', backgroundColor:'#429E34', fontSize: 42, fontWeight: '900', padding: 10, borderRadius: 10 }}>LIKE</Text>
 
             </Animated.View>
 
             <Animated.View style={{ opacity: this.dislikeOpacity, transform: [{ rotate: '30deg' }], position: 'absolute', top: 50, right: 40, zIndex: 1000 }}>
-              <Text style={{ borderWidth: 1, borderColor: 'white', color: 'white',backgroundColor:'red', fontSize: 42, fontWeight: '900', padding: 10 }}>NOPE </Text>
+              <Text style={{ borderWidth: 2, borderColor: 'white', color: 'white',backgroundColor:'#F40205', fontSize: 42, fontWeight: '900', padding: 10, borderRadius: 10 }}>NOPE</Text>
 
             </Animated.View>
 
