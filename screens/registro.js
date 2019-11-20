@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { View , Text, Image } from 'react-native';
+import { View , Text, Image, StatusBar, ScrollView } from 'react-native';
 // Componentes
 import Boton from '../components/botones'
 import BotonTrans from '../components/botonesTrans'
@@ -10,17 +10,16 @@ export default class registro extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <View>
-            <Image source = {require('../images/logo.png')} style = {styles.logo}></Image>
-            <Text style = {styles.Registertitles}>Tindog    </Text>
-              <Input placeholder = "Usuario"/>
-              <Input placeholder = "Correo"/>
-              <Input placeholder = "Contraseña" secureTextEntry = {true}/>
-              <Input placeholder = "Confirmar Contraseña" secureTextEntry = {true}/>
-            <View style={styles.RegisterContainer}>
-              <Boton onPress = {() => this.props.navigation.navigate('app')} texto = "Registarme"/> 
-              <BotonTrans onPress = {() => this.props.navigation.navigate('login')} texto = "Ya tengo una cuenta"/>
-            </View>
+        <StatusBar backgroundColor='#fff' barStyle="dark-content"/>
+        <Image source = {require('../images/logo.png')} style = {styles.logo}></Image>
+        <Text style = {styles.Registertitles}>Tindog    </Text>
+          <Input placeholder = "Usuario"/>
+          <Input placeholder = "Correo"/>
+          <Input placeholder = "Contraseña" secureTextEntry = {true}/>
+          <Input placeholder = "Confirmar Contraseña" secureTextEntry = {true}/>
+        <View style={styles.RegisterContainer}>
+          <Boton onPress = {() => this.props.navigation.navigate('app')} texto = "Registarme"/> 
+          <BotonTrans onPress = {() => this.props.navigation.navigate('login')} texto = "Ya tengo una cuenta"/>
         </View>
       </View>
     );

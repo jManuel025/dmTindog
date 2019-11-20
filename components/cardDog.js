@@ -30,9 +30,11 @@ const styles = new StyleSheet.create({
     alignSelf: "center",
     margin: 5,
     shadowColor: '#000',
-    shadowOffset: {width: 0, height: 0},
-    shadowOpacity: 0.8,
-    elevation: 2,
+    shadowOffset: {width: 2, height: 2},
+    shadowOpacity: 1,
+    elevation: 5,
+    borderWidth: .1,
+    borderColor: '#b8b8b8'
   },
     imageCard: {
       flex: .3,

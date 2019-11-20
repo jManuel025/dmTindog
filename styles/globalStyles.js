@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 
 //COLORES
-const fondo = '#FCFCFC';
+const fondo = '#fff';
 const titulos = '#707070';
 const texto = '#BDC6CD';
 const textomDark = '#C4C4C4';
@@ -16,13 +16,14 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: fondo,
-    },container2:{
-        
+    },
+    container2:{    
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: fondo,
         marginBottom:70
-    },back:{
+    },
+    back:{
         marginRight:340,
         marginTop:20
     },
@@ -83,8 +84,8 @@ const styles = StyleSheet.create({
         position: 'absolute',
         bottom: 20,
         right: 20,
-        width: 50,
-        height: 50,
+        width: 55,
+        height: 55,
         backgroundColor: secundario,
         justifyContent: 'center',
         alignItems: 'center',
@@ -163,6 +164,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderBottomWidth:2,
         borderBottomColor:"#e3e3d3",
+        backgroundColor: '#FF3980',
     },
         titleBar:{
             color: textoDark,
@@ -170,6 +172,7 @@ const styles = StyleSheet.create({
             fontSize: 20,
             margin: 10,
             padding: 10,
+            color: '#FFF',
         },
     inputRegistro:{
         width: '85%',

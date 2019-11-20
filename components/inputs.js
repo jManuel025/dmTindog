@@ -16,7 +16,7 @@ export default class Input extends Component {
         backgroundColor: '#F3F3F3',
         padding: 5,
         margin: 5,
-        borderRadius: 20,
+        borderRadius: 5,
         width: 300,
         height: 41.5,
         textAlign: 'center',

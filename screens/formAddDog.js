@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { View , Text, TextInput, Picker, ScrollView, TouchableOpacity } from 'react-native';
+import { View , Text, TextInput, Picker, ScrollView, TouchableOpacity, StatusBar } from 'react-native';
 import styles from '../styles/globalStyles';
 import Boton from '../components/botones';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -15,6 +15,7 @@ export default class addPerro extends Component {
     render() {
       return (
         <View style = {styles.container}>
+          <StatusBar backgroundColor='#F03579' barStyle="light-content"/>
           <View style = {styles.barTitle}>
             <Text style = {styles.titleBar}>Añadir perro</Text>
           </View>

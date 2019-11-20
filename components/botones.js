@@ -19,7 +19,7 @@ export default class Boton extends Component {
           backgroundColor: '#FF3980',
           padding: 7.5,
           margin: 9.0,
-          borderRadius: 20,
+          borderRadius: 5,
           width: 300,
           height: 40,
           alignSelf: 'center'
