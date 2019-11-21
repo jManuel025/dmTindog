@@ -167,32 +167,32 @@ export default class principal extends Component {
             <Image
              source = {require('../images/dog.jpg')}
               //borderRadius style will help us make the Round Shape Image
-              style={{ width: 75, height: 75, borderRadius: 200 / 2,marginTop:21,marginLeft:15, }}
+              style={{ width: 75, height: 75, borderRadius: 200 / 2,marginTop:16,marginLeft:15, }}
             />
             <Image
              source = {require('../images/dog.jpg')}
               //borderRadius style will help us make the Round Shape Image
-              style={{ width: 75, height: 75, borderRadius: 200 / 2,marginTop:21,marginLeft:15}}
+              style={{ width: 75, height: 75, borderRadius: 200 / 2,marginTop:16,marginLeft:15}}
             />
             <Image
              source = {require('../images/dog.jpg')}
               //borderRadius style will help us make the Round Shape Image
-              style={{ width: 75, height: 75, borderRadius: 200 / 2,marginTop:21, marginLeft:15}}
+              style={{ width: 75, height: 75, borderRadius: 200 / 2,marginTop:16, marginLeft:15}}
             />
             <Image
              source = {require('../images/dog.jpg')}
               //borderRadius style will help us make the Round Shape Image
-              style={{ width: 75, height: 75, borderRadius: 200 / 2,marginTop:21, marginLeft:15}}
+              style={{ width: 75, height: 75, borderRadius: 200 / 2,marginTop:16, marginLeft:15}}
             />
             <Image
              source = {require('../images/dog.jpg')}
               //borderRadius style will help us make the Round Shape Image
-              style={{ width: 75, height: 75, borderRadius: 200 / 2,marginTop:21, marginLeft:15}}
+              style={{ width: 75, height: 75, borderRadius: 200 / 2,marginTop:16, marginLeft:15}}
             />
             <Image
              source = {require('../images/dog.jpg')}
               //borderRadius style will help us make the Round Shape Image
-              style={{ width: 75, height: 75, borderRadius: 200 / 2,marginTop:21, marginLeft:15}}
+              style={{ width: 75, height: 75, borderRadius: 200 / 2,marginTop:16, marginLeft:15}}
             />
             
             
@@ -221,7 +221,7 @@ const styles = StyleSheet.create({
     height:110,
     flexDirection:"row",
     borderTopColor:"#e3e3d3",
-    borderTopWidth:2,
+    borderTopWidth:.5,
     borderBottomWidth:1,
     borderBottomColor:"#e3e3d3",
   },

@@ -13,8 +13,11 @@ export default class perfilUsuario extends Component {
             <TouchableOpacity style = {styles.settings} onPress = {() => this.props.navigation.navigate('configuracion')}>
               <Icon name='cog' color='#888F94' size={25}/>
             </TouchableOpacity>
-            <TouchableOpacity style = {styles.edit} onPress = {() => {this.props.navigation.navigate('formUsuario')}}>
+            <TouchableOpacity style = {styles.edit} onPress = {() => {this.props.navigation.navigate('verUserInfo')}}>
               <Icon name='edit' color='#888F94' size={25}/>
+            </TouchableOpacity>
+            <TouchableOpacity style = {styles.edit2} onPress = {() => {this.props.navigation.navigate('formUsuario')}}>
+              <Icon name='user' color='#888F94' size={25}/>
             </TouchableOpacity>
             <Image source = {require('../images/usuario.png')} style = {styles.profilePhoto}/>
             <Text style = {styles.username}>jManuel  </Text>

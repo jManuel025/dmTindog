@@ -78,6 +78,16 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 50,
+    },edit2:{
+        backgroundColor: fondo,
+        position: 'absolute',
+        top: 115,
+        right: 5,
+        width: 50,
+        height: 50,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 50,
     },
     floatButton:{
         position: 'absolute',
