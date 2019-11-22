@@ -75,10 +75,10 @@ export default class configuracion extends Component {
                     }
                 </View> 
                 <View style={styles.footer}>
-                    <TouchableOpacity style = {styles.boton} onPress={this.props.onPress}>  
+                    <TouchableOpacity style = {styles.boton} onPress={() => this.props.navigation.navigate('login')}>  
                         <Text style = {styles.textoBoton1}> Cerrar Sesion</Text>
                     </TouchableOpacity> 
-                    <TouchableOpacity style = {styles.boton} onPress={this.props.onPress}>  
+                    <TouchableOpacity style = {styles.boton} onPress={() => this.props.navigation.navigate('login')}>  
                         <Text style = {styles.textoBoton2}> Eliminar Cuenta</Text>
                     </TouchableOpacity> 
                 </View>

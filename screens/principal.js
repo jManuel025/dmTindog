@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import { StyleSheet,View , Text, Image, ScrollView,Dimensions, Animated, PanResponder, StatusBar} from 'react-native';
+import { StyleSheet,View , Text, Image, ScrollView,Dimensions, Animated, PanResponder, StatusBar, TouchableOpacity} from 'react-native';
 import styless from '../styles/globalStyles';
+import Icon from 'react-native-vector-icons/FontAwesome'
 const SCREEN_HEIGHT = Dimensions.get('window').height
 const SCREEN_WIDTH = Dimensions.get('window').width
 const Users = [
@@ -165,11 +166,27 @@ export default class principal extends Component {
           <StatusBar backgroundColor='#fff' barStyle="dark-content"/>
           <View style={styles.header}>
             <ScrollView  horizontal={true}>
-              <Image
-                source = {require('../images/dog.jpg')}
-                //borderRadius style will help us make the Round Shape Image
-                style={{ width: 70, height: 70, borderRadius: 200 / 2, marginTop: 10, marginBottom: 10,marginLeft:15, }}
-              />
+              <TouchableOpacity style = {{width: 65, height: 65, borderRadius: 200 / 2, marginTop: 12.5, marginBottom: 12.5,marginLeft:15, backgroundColor: '#FF3980DD', justifyContent: 'center', alignItems: 'center'}} onPress={() => this.props.navigation.navigate('formPerro')}>
+                <Icon name='plus' color='#fff' size={30}/>
+              </TouchableOpacity>
+              <TouchableOpacity style = {{width: 70, height: 70, borderRadius: 200 / 2, marginTop: 10, marginBottom: 10, marginLeft:15, backgroundColor: '#FF3980DD', justifyContent: 'center', alignItems: 'center'}}>
+                <View style = {{width: 65, height: 65, borderRadius: 200 / 2, backgroundColor: '#fff', justifyContent: 'center', alignItems: 'center'}}>
+                  <Image
+                    source = {require('../images/dog.jpg')}
+                    //borderRadius style will help us make the Round Shape Image
+                    style={{ width: 62.5, height: 62.5, borderRadius: 200 / 2}}
+                  />
+                </View>
+              </TouchableOpacity>
+              <TouchableOpacity style = {{width: 70, height: 70, borderRadius: 200 / 2, marginTop: 10, marginBottom: 10, marginLeft:15, backgroundColor: '#cbcbcb', justifyContent: 'center', alignItems: 'center'}}>
+                <View style = {{width: 65, height: 65, borderRadius: 200 / 2, backgroundColor: '#fff', justifyContent: 'center', alignItems: 'center'}}>
+                  <Image
+                    source = {require('../images/dog.jpg')}
+                    //borderRadius style will help us make the Round Shape Image
+                    style={{ width: 62.5, height: 62.5, borderRadius: 200 / 2}}
+                  />
+                </View>
+              </TouchableOpacity>
             </ScrollView>
           </View>
           <View style={styles.center}>
