@@ -32,7 +32,6 @@ export default class login extends Component {
               <View style={styles.RegisterContainer}>
                 <Boton onPress = {() => this.props.navigation.navigate('app')} texto = "Entrar"/> 
                 <BotonTrans onPress = {() => this.props.navigation.navigate('registro')} texto = "Crear cuenta"/> 
-                <BotonTrans onPress = {() => this.props.navigation.navigate('app')} texto = "¿Olvidaste tu contraseña?"/> 
               </View>
       </View>
     );

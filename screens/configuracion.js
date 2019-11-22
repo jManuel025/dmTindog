@@ -1,11 +1,9 @@
 import React, {Component} from 'react';
-import { View , Text, Image, ScrollView,StyleSheet, TouchableOpacity} from 'react-native';
+import { View , Text, Image, ScrollView,StyleSheet, TouchableOpacity, StatusBar} from 'react-native';
 import { ListItem } from "react-native-elements"
 import Icon from 'react-native-vector-icons/FontAwesome'
-// import Boton from '../components/botones'
 
 export default class configuracion extends Component {
-// No se bien en pantallas más chicas --arreglar contBotonCirc--
     constructor(){
         super();
         this.state={
@@ -47,11 +45,12 @@ export default class configuracion extends Component {
         const{ menuItems } = this.state;
         return(
             <View style={styles.container}>
+                <StatusBar backgroundColor='#F03579' barStyle="light-content"/>
                 <View style={styles.header}>
-                <TouchableOpacity style = {styles.back} onPress = {() => {this.props.navigation.navigate('perfilUsuario')}}>
-                    <Icon name='angle-left' color='#FF3980' size={55}/>
-                </TouchableOpacity>
                     <Text style={styles.texto}>Configuración</Text>
+                    <TouchableOpacity style = {styles.back} onPress = {() => {this.props.navigation.navigate('perfilUsuario')}}>
+                        <Icon name='long-arrow-left' color='#fff' size={20}/>
+                    </TouchableOpacity>
                 </View>
                 <View >
                     {
@@ -91,29 +90,36 @@ export default class configuracion extends Component {
 const styles=StyleSheet.create({
     container:{
         flex:1,
-        backgroundColor:"#FCFCFC"
-    },header:{
+        backgroundColor:"#fff"
+    },
+    header:{
         width:"100%",
-        height:65,
+        height:60,
         borderBottomWidth:2,
         borderBottomColor:"#e3e3d3",
-        flexDirection:"row"
-    },texto:{
-        alignSelf: "center",
-        color: '#888F94',
+        backgroundColor: '#FF3980',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    texto:{
+        // alignSelf: "center",
+        color: '#fff',
         margin:17.5,
         fontWeight: 'bold',
-        fontSize:20
-
+        fontSize:20,
     },
     contentContainerStyle:{
         borderBottomWidth:1,
         borderBottomColor:"#e3e3d3",
         
-    },footer:{
-        marginTop:350,
-    },boton: {
-        
+    },
+    footer:{
+        position: 'absolute',
+        bottom: 0,
+        paddingBottom: 15,
+        width: '100%',
+    },
+    boton: {
         justifyContent: "center",
         backgroundColor: '#FCFCFC',
         padding: 7.5,
@@ -132,14 +138,17 @@ const styles=StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 18,
         textAlign: 'center',
-    },textoBoton2:{
+    },
+    textoBoton2:{
         color: '#E64543',
         fontWeight: 'bold',
         fontSize: 18,
         textAlign: 'center',
-    },back:{
-        marginRight:10,
-        marginLeft:10
+    },
+    back:{
+        position: 'absolute',
+        top: 20,
+        left: 20,
     }
     
 })

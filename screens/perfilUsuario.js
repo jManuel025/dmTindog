@@ -11,12 +11,11 @@ export default class perfilUsuario extends Component {
         <StatusBar backgroundColor='#fff' barStyle="dark-content"/>
         <View style = {styles.contSup}>
           <TouchableOpacity style = {styles.settings} onPress = {() => this.props.navigation.navigate('configuracion')}>
-            <Icon name='cog' color='#FF5B5B' size={25}/>
+            <Icon name='cog' color='#FF3980' size={25}/>
           </TouchableOpacity>
-          <TouchableOpacity style = {styles.edit} onPress = {() => {this.props.navigation.navigate('formUsuario')}}>
-            <Icon name='edit' color='#FF5B5B' size={25}/>
+          <TouchableOpacity onPress = {() => this.props.navigation.navigate('verUserInfo')}>
+            <Image source = {require('../images/usuario.png')} style = {styles.profilePhoto}/>
           </TouchableOpacity>
-          <Image source = {require('../images/usuario.png')} style = {styles.profilePhoto}/>
           <Text style = {styles.username}>jManuel</Text>
           <Text style = {styles.subtitle}>Mis perros</Text>
         </View>

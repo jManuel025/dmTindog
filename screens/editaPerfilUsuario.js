@@ -1,32 +1,41 @@
 import React, {Component} from 'react';
-import { View , Text, Image, ScrollView,TouchableOpacity} from 'react-native';
-import CardInfo from '../components/cardInfo';
+import { View , Text, ScrollView,TouchableOpacity, TextInput} from 'react-native';
 import styles from '../styles/globalStyles';
 import Icon from 'react-native-vector-icons/FontAwesome'
-export default class perfilPerro extends Component {
-// No se bien en pantallas más chicas --arreglar contBotonCirc--
-render() {
+
+export default class editaPerfilUsuario extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      sexo: true,
+    }
+  }
+  render() {
     return (
       <View style = {styles.container}>
-        <View style = {styles.contSup}>
-        <TouchableOpacity style = {styles.back} onPress = {() => {this.props.navigation.navigate('perfilUsuario')}}>
-            <Icon name='angle-left' color='#FF3980' size={55}/>
-        </TouchableOpacity>
-        <Image source = {require('../images/usuario.png')} style = {styles.profilePhoto2}/>
-          <Text style = {styles.username}>Fulanito  </Text>
-          <View style = {styles.contBotonCirc}>
-            <View style = {styles.contBtnTxt}>
-            </View>
-          </View>
+        <View style = {styles.barTitle}>
+          <Text style = {styles.titleBar}>Edita tu información</Text>
         </View>
-        <View style = {styles.contInf}>
-          <ScrollView contentContainerStyle={styles.dogContainer}>
-            <CardInfo seccion = 'Nombre y Apellido' contenido = 'aqui va el texto'/>
-            <CardInfo seccion = 'Correo'/>
-            <CardInfo seccion = 'Edad'/>
-            <CardInfo seccion = 'Telefono'/>
-            <CardInfo seccion = 'Ubicacion'/>
+        <View style = {styles.prueba3}>
+          <ScrollView contentContainerStyle={styles.prueba2}>
+            <TouchableOpacity style = {styles.addphoto}>
+              <Icon name='camera-retro' color='#fff' size={60}/>
+            </TouchableOpacity>
+            <Text style = {styles.subadd}>Actualizar foto</Text>
+            <TextInput placeholder='Nombre' style={styles.inputRegistro}/>
             
+            <TextInput placeholder='Correo' style={styles.inputRegistro}/>
+            <TextInput placeholder='Edad' style={styles.inputRegistro}/>
+            <TextInput placeholder='Telefono' style={styles.inputRegistro}/>
+            
+            <View style = {styles.prueba}>
+              <TouchableOpacity style = {styles.btnform} onPress = {() => this.props.navigation.navigate('verUserInfo')}>
+                <Text style = {styles.btnftext}>Cancelar</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style = {styles.btnform} onPress = {() => this.props.navigation.navigate('verUserInfo')}>
+                <Text style = {styles.btnftext}>Aceptar</Text>
+              </TouchableOpacity>
+            </View>
           </ScrollView>
         </View>
       </View>

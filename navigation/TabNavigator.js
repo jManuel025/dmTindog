@@ -1,41 +1,42 @@
 import React from 'react';
-import { createBottomTabNavigator } from 'react-navigation-tabs'
+import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import perfilUsuario from '../screens/perfilUsuario';
-import mensajes from '../screens/mensajes';
+import matches from '../screens/matches';
 import principal from '../screens/principal';
 
-export default createBottomTabNavigator({  
+export default createMaterialBottomTabNavigator({  
     perfilUsuario: {
         screen: perfilUsuario,
         navigationOptions: {
-            tabBarLabel: "Perfil",
+            title: 'Mis perros',
             tabBarIcon: ({tintColor}) => (
-                <Icon name="user" size={20} color={tintColor}/>
+                <Icon name="paw" size={20} color={tintColor}/>
             ),
         }
     },
     principal: {
         screen: principal,
         navigationOptions: {
-            tabBarLabel: "Inicio",
+            title: 'Inicio',
             tabBarIcon: ({tintColor}) => (
-                <Icon name="paw" size={20} color={tintColor}/>
+                <Icon name="fire" size={20} color={tintColor}/>
             ),
         }
     },
-    mensajes: {
-        screen: mensajes,
+    matches: {
+        screen: matches,
         navigationOptions: {
-            tabBarLabel: "Mensajes",
+            title: 'Matches',
             tabBarIcon: ({tintColor}) => (
-                <Icon name="comments" size={20} color={tintColor}/>
+                <Icon name="heart" size={20} color={tintColor}/>
             ),
         }
     },   
 },
 {
-    tabBarOptions: {
-        activeTintColor: '#FF3980'
-    }
+    initialRouteName: 'principal',
+    activeColor: '#f0edf6',
+    inactiveColor: '#94285C',
+    barStyle: { backgroundColor: '#FF3980' },
 });

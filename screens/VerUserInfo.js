@@ -1,47 +1,42 @@
 import React, {Component} from 'react';
-import { View , Text, TextInput, Picker, ScrollView, TouchableOpacity } from 'react-native';
+import { View , Text, ScrollView, TouchableOpacity, Image, StatusBar } from 'react-native';
+import CardInfo from '../components/cardInfo';
 import styles from '../styles/globalStyles';
-import Boton from '../components/botones';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default class VerUserInfo extends Component {
-  
-  constructor(props){
-    super(props);
-    this.state = {
-      sexo: true,
-    }
-  }
-    render() {
-      return (
-        <View style = {styles.container}>
-          <View style = {styles.barTitle}>
-            <Text style = {styles.titleBar}>Edita tu información</Text>
-          </View>
-          <View style = {styles.prueba3}>
-            <ScrollView contentContainerStyle={styles.prueba2}>
-              <TouchableOpacity style = {styles.addphoto}>
-                <Icon name='camera-retro' color='#fff' size={60}/>
-              </TouchableOpacity>
-              <Text style = {styles.subadd}>Agregar foto</Text>
-              <TextInput placeholder='Nombre' style={styles.inputRegistro}/>
-              
-              <TextInput placeholder='Correo' style={styles.inputRegistro}/>
-              <TextInput placeholder='Edad' style={styles.inputRegistro}/>
-              <TextInput placeholder='Telefono' style={styles.inputRegistro}/>
-              
-              <View style = {styles.prueba}>
-                <TouchableOpacity style = {styles.btnform} onPress = {() => this.props.navigation.navigate('perfilUsuario')}>
-                  <Text style = {styles.btnftext}>Cancelar</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style = {styles.btnform} onPress = {() => this.props.navigation.navigate('perfilUsuario')}>
-                  <Text style = {styles.btnftext}>Aceptar</Text>
-                </TouchableOpacity>
-              </View>
-            </ScrollView>
+  render() {
+    return (
+      <View style = {styles.container}>
+        <StatusBar backgroundColor='#F03579' barStyle="light-content"/>
+        <View style = {styles.contSup}>
+        <View style = {styles.barTitle}>
+          {/* <Text style = {styles.titleBar}>Perfil perro</Text> */}
+          <TouchableOpacity style = {styles.back} onPress = {() => {this.props.navigation.navigate('perfilUsuario')}}>
+            <Icon name='long-arrow-left' color='#fff' size={20}/>
+          </TouchableOpacity>
+          <TouchableOpacity style = {styles.editar} onPress = {() => {this.props.navigation.navigate('formUsuario')}}>
+            <Icon name='edit' color='#fff' size={20}/>
+          </TouchableOpacity>
+        </View>
+        <Image source = {require('../images/usuario.png')} style = {styles.profilePhoto}/>
+          <Text style = {styles.username}>Fulanito</Text>
+          <View style = {styles.contBotonCirc}>
+            <View style = {styles.contBtnTxt}>
+            </View>
           </View>
         </View>
-      );
-    }
+        <View style = {styles.contInf}>
+          <ScrollView contentContainerStyle={styles.dogContainer}>
+            <CardInfo seccion = 'Nombre y Apellido' contenido = 'Aqui va el texto'/>
+            <CardInfo seccion = 'Correo'/>
+            <CardInfo seccion = 'Edad'/>
+            <CardInfo seccion = 'Telefono'/>
+            <CardInfo seccion = 'Ubicacion'/>
+          </ScrollView>
+        </View>
+      </View>
+    );
+  }
 }
 

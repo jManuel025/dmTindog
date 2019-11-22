@@ -24,8 +24,14 @@ const styles = StyleSheet.create({
         marginBottom:70
     },
     back:{
-        marginRight:340,
-        marginTop:20
+        position: 'absolute',
+        top: 20,
+        left: 20,
+    },
+    editar:{
+        position: 'absolute',
+        top:20,
+        right:20,
     },
     RegisterContainer:{
         marginTop:40,
@@ -96,7 +102,7 @@ const styles = StyleSheet.create({
         right: 20,
         width: 55,
         height: 55,
-        backgroundColor: secundario,
+        backgroundColor: pricipal,
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 50,
@@ -114,15 +120,15 @@ const styles = StyleSheet.create({
         profilePhoto:{
             width: 150,
             height: 150,
-            margin: 40,
+            margin: 75,
             marginBottom: 0,
         },
-        profilePhoto2:{
-            width: 150,
-            height: 150,
-            margin: 0,
-            marginTop: -31,
-        },
+        // profilePhoto2:{
+        //     width: 150,
+        //     height: 150,
+        //     margin: 0,
+        //     marginTop: -31,
+        // },
         username:{
             fontSize: 20,
             color: textoDark,
@@ -153,6 +159,7 @@ const styles = StyleSheet.create({
             flexDirection: 'column',
             width: '100%',
             padding: 10,
+            paddingTop: -10,
             // paddingTop: 0,
             paddingBottom: 90,
         },
@@ -161,6 +168,8 @@ const styles = StyleSheet.create({
             fontWeight: 'bold',
             fontSize: 15,
             margin: 10,
+            marginTop: -20,
+            marginBottom: 40,
             padding: 10,
             alignSelf: 'flex-start',
             width: '100%',
