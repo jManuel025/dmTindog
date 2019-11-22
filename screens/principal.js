@@ -167,7 +167,7 @@ export default class principal extends Component {
           <View style={styles.header}>
             <ScrollView  horizontal={true}>
               <TouchableOpacity style = {{width: 65, height: 65, borderRadius: 200 / 2, marginTop: 12.5, marginBottom: 12.5,marginLeft:15, backgroundColor: '#FF3980DD', justifyContent: 'center', alignItems: 'center'}} onPress={() => this.props.navigation.navigate('formPerro')}>
-                <Icon name='plus' color='#fff' size={30}/>
+                <Icon name='plus' color='#fff' size={15}/>
               </TouchableOpacity>
               <TouchableOpacity style = {{width: 70, height: 70, borderRadius: 200 / 2, marginTop: 10, marginBottom: 10, marginLeft:15, backgroundColor: '#FF3980DD', justifyContent: 'center', alignItems: 'center'}}>
                 <View style = {{width: 65, height: 65, borderRadius: 200 / 2, backgroundColor: '#fff', justifyContent: 'center', alignItems: 'center'}}>
