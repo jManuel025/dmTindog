@@ -33,6 +33,9 @@ export default class login extends Component {
             AsyncStorage.setItem('usertoken', responseJson.token);
             this.props.navigation.navigate('app');
           }
+          else{
+            alert("Datos incorrectos, intenta otra vez");
+          }
         })
         .catch((error) => {
           console.log(error)
@@ -41,8 +44,6 @@ export default class login extends Component {
     catch(e){
       console.log(e);
     }
-
-    
   }
 
   render() {
