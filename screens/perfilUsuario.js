@@ -14,6 +14,7 @@ export default class perfilUsuario extends Component {
 
   componentDidMount(){
     this._getUserInfo();
+    this._getUserDogs();
   }
 
   _getUserInfo = async() => {
@@ -31,7 +32,34 @@ export default class perfilUsuario extends Component {
         .then((responseJson) => {
           this.setState({
             name: responseJson.data.user.name,
-            dogs: responseJson.data.user.dogs,
+            // dogs: responseJson.data.user.dogs,
+          });
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    }
+    catch(e){
+      console.log(e);
+    }
+  }
+
+  _getUserDogs = async() => {
+    var token = await AsyncStorage.getItem('usertoken');
+    var auth = 'Bearer ' + token;
+    // Crea objeto headers
+    var myheader = new Headers();
+    myheader.append('Authorization', auth);
+
+    try{
+      fetch('https://tindog-api.herokuapp.com/api/v1/user/dogs/',{
+        method: 'GET',
+        headers: myheader,
+      }).then((response) => response.json())
+        .then((responseJson) => {
+          this.setState({
+            cant: responseJson.count,
+            dogs: responseJson.dogs,
           });
         })
         .catch((error) => {
@@ -59,7 +87,7 @@ export default class perfilUsuario extends Component {
         </View>
         <View style = {styles.contInf}>
           <ScrollView contentContainerStyle={styles.dogContainer} >
-            {this.state.dogs ?
+            {this.state.cant <= 0 ?
               <Text style={styles.mensajes}>Aún no has registrado ningun perro</Text>
               :
               <Card imageUri = {require('../images/dog.jpg')} onPress = {() => this.props.navigation.navigate('perfilPerro')}/>

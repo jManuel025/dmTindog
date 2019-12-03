@@ -168,7 +168,7 @@ const styles = StyleSheet.create({
             fontWeight: 'bold',
             fontSize: 15,
             margin: 10,
-            marginTop: 10,
+            marginTop: -20,
             marginBottom: 40,
             padding: 10,
             alignSelf: 'flex-start',
