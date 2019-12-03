@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 
 //COLORES
-const fondo = '#FCFCFC';
+const fondo = '#fff';
 const titulos = '#707070';
 const texto = '#BDC6CD';
 const textomDark = '#C4C4C4';
@@ -16,18 +16,25 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: fondo,
-    },container2:{
-        
+    },
+    container2:{    
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: fondo,
         marginBottom:70
-    },back:{
-        marginRight:340,
-        marginTop:20
+    },
+    back:{
+        position: 'absolute',
+        top: 20,
+        left: 20,
+    },
+    editar:{
+        position: 'absolute',
+        top:20,
+        right:20,
     },
     RegisterContainer:{
-        marginTop:40,
+        marginTop:30,
         marginBottom:1,
         backgroundColor: fondo,
     },
@@ -93,9 +100,9 @@ const styles = StyleSheet.create({
         position: 'absolute',
         bottom: 20,
         right: 20,
-        width: 50,
-        height: 50,
-        backgroundColor: secundario,
+        width: 55,
+        height: 55,
+        backgroundColor: pricipal,
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 50,
@@ -113,15 +120,15 @@ const styles = StyleSheet.create({
         profilePhoto:{
             width: 150,
             height: 150,
-            margin: 40,
+            margin: 75,
             marginBottom: 0,
         },
-        profilePhoto2:{
-            width: 150,
-            height: 150,
-            margin: 0,
-            marginTop: -31,
-        },
+        // profilePhoto2:{
+        //     width: 150,
+        //     height: 150,
+        //     margin: 0,
+        //     marginTop: -31,
+        // },
         username:{
             fontSize: 20,
             color: textoDark,
@@ -152,6 +159,7 @@ const styles = StyleSheet.create({
             flexDirection: 'column',
             width: '100%',
             padding: 10,
+            paddingTop: -10,
             // paddingTop: 0,
             paddingBottom: 90,
         },
@@ -160,6 +168,8 @@ const styles = StyleSheet.create({
             fontWeight: 'bold',
             fontSize: 15,
             margin: 10,
+            marginTop: -20,
+            marginBottom: 40,
             padding: 10,
             alignSelf: 'flex-start',
             width: '100%',
@@ -173,6 +183,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderBottomWidth:2,
         borderBottomColor:"#e3e3d3",
+        backgroundColor: '#FF3980',
     },
         titleBar:{
             color: textoDark,
@@ -180,6 +191,7 @@ const styles = StyleSheet.create({
             fontSize: 20,
             margin: 10,
             padding: 10,
+            color: '#FFF',
         },
     inputRegistro:{
         width: '85%',
@@ -206,6 +218,13 @@ const styles = StyleSheet.create({
         paddingBottom: 100,
         justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor: '#fff'
+    },
+    containerScroll: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#fff',
+        paddingTop: 40
     },
     prueba3:{
         position: 'absolute',

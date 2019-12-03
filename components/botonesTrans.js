@@ -14,7 +14,7 @@ export default class BotonTrans extends Component {
   const styles = new StyleSheet.create({
       boton: {
           justifyContent: "center",
-          backgroundColor:"#F8FBFB",
+          backgroundColor:"#fff",
           padding: 0.0,
           margin: 0.000,
           

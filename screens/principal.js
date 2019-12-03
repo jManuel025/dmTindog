@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import { StyleSheet,View , Text, Image, ScrollView,Dimensions, Animated, PanResponder} from 'react-native';
+import { StyleSheet,View , Text, Image, ScrollView,Dimensions, Animated, PanResponder, StatusBar, TouchableOpacity} from 'react-native';
 import styless from '../styles/globalStyles';
+import Icon from 'react-native-vector-icons/FontAwesome'
 const SCREEN_HEIGHT = Dimensions.get('window').height
 const SCREEN_WIDTH = Dimensions.get('window').width
 const Users = [
@@ -108,7 +109,7 @@ export default class principal extends Component {
         return (
           <Animated.View
             {...this.PanResponder.panHandlers}
-            key={item.id} style={[this.rotateAndTranslate, { height: SCREEN_HEIGHT - 225, width: SCREEN_WIDTH - 10, padding: 0, position: 'absolute',marginLeft: -210,marginTop: 80, }]}>
+            key={item.id} style={[this.rotateAndTranslate, { height: SCREEN_HEIGHT - 200, width: SCREEN_WIDTH - 10, padding: 0, position: 'absolute',marginLeft: -210,marginTop: 80, }]}>
             <Animated.View style={{ opacity: this.likeOpacity, transform: [{ rotate: '-30deg' }], position: 'absolute', top: 50, left: 40, zIndex: 1000 }}>
               <Text style={{ borderWidth: 2, borderColor: 'white', color: 'white', backgroundColor:'#429E34', fontSize: 42, fontWeight: '900', padding: 10, borderRadius: 10 }}>LIKE</Text>
 
@@ -133,7 +134,7 @@ export default class principal extends Component {
             key={item.id} style={[{
               opacity: this.nextCardOpacity,
               transform: [{ scale: this.nextCardScale }],
-              height: SCREEN_HEIGHT - 225, width: SCREEN_WIDTH, padding: 0, position: 'absolute',marginLeft: -210,marginTop: 80,
+              height: SCREEN_HEIGHT - 200, width: SCREEN_WIDTH, padding: 0, position: 'absolute',marginLeft: -210,marginTop: 80,
             }]}>
             <Animated.View style={{ opacity: 0, transform: [{ rotate: '-30deg' }], position: 'absolute', top: 50, left: 40, zIndex: 1000 }}>
               <Text style={{ borderWidth: 1, borderColor: 'white', color: 'white',backgroundColor:'green', fontSize: 42, fontWeight: '900', padding: 10 }}>LIKE</Text>
@@ -162,48 +163,38 @@ export default class principal extends Component {
     render() {
       return (
         <View style={styles.container}>
-            <View style={styles.header}>
+          <StatusBar backgroundColor='#fff' barStyle="dark-content"/>
+          <View style={styles.header}>
             <ScrollView  horizontal={true}>
-            <Image
-             source = {require('../images/dog.jpg')}
-              //borderRadius style will help us make the Round Shape Image
-              style={{ width: 75, height: 75, borderRadius: 200 / 2,marginTop:16,marginLeft:15, }}
-            />
-            <Image
-             source = {require('../images/dog.jpg')}
-              //borderRadius style will help us make the Round Shape Image
-              style={{ width: 75, height: 75, borderRadius: 200 / 2,marginTop:16,marginLeft:15}}
-            />
-            <Image
-             source = {require('../images/dog.jpg')}
-              //borderRadius style will help us make the Round Shape Image
-              style={{ width: 75, height: 75, borderRadius: 200 / 2,marginTop:16, marginLeft:15}}
-            />
-            <Image
-             source = {require('../images/dog.jpg')}
-              //borderRadius style will help us make the Round Shape Image
-              style={{ width: 75, height: 75, borderRadius: 200 / 2,marginTop:16, marginLeft:15}}
-            />
-            <Image
-             source = {require('../images/dog.jpg')}
-              //borderRadius style will help us make the Round Shape Image
-              style={{ width: 75, height: 75, borderRadius: 200 / 2,marginTop:16, marginLeft:15}}
-            />
-            <Image
-             source = {require('../images/dog.jpg')}
-              //borderRadius style will help us make the Round Shape Image
-              style={{ width: 75, height: 75, borderRadius: 200 / 2,marginTop:16, marginLeft:15}}
-            />
-            
-            
+              <TouchableOpacity style = {{width: 65, height: 65, borderRadius: 200 / 2, marginTop: 12.5, marginBottom: 12.5,marginLeft:15, backgroundColor: '#FF3980DD', justifyContent: 'center', alignItems: 'center'}} onPress={() => this.props.navigation.navigate('formPerro')}>
+                <Icon name='plus' color='#fff' size={15}/>
+              </TouchableOpacity>
+              <TouchableOpacity style = {{width: 70, height: 70, borderRadius: 200 / 2, marginTop: 10, marginBottom: 10, marginLeft:15, backgroundColor: '#FF3980DD', justifyContent: 'center', alignItems: 'center'}}>
+                <View style = {{width: 65, height: 65, borderRadius: 200 / 2, backgroundColor: '#fff', justifyContent: 'center', alignItems: 'center'}}>
+                  <Image
+                    source = {require('../images/dog.jpg')}
+                    //borderRadius style will help us make the Round Shape Image
+                    style={{ width: 62.5, height: 62.5, borderRadius: 200 / 2}}
+                  />
+                </View>
+              </TouchableOpacity>
+              <TouchableOpacity style = {{width: 70, height: 70, borderRadius: 200 / 2, marginTop: 10, marginBottom: 10, marginLeft:15, backgroundColor: '#cbcbcb', justifyContent: 'center', alignItems: 'center'}}>
+                <View style = {{width: 65, height: 65, borderRadius: 200 / 2, backgroundColor: '#fff', justifyContent: 'center', alignItems: 'center'}}>
+                  <Image
+                    source = {require('../images/dog.jpg')}
+                    //borderRadius style will help us make the Round Shape Image
+                    style={{ width: 62.5, height: 62.5, borderRadius: 200 / 2}}
+                  />
+                </View>
+              </TouchableOpacity>
             </ScrollView>
-            </View>
-            <View style={styles.center}>
+          </View>
+          <View style={styles.center}>
             {this.renderUsers()}
-            </View>
-            <View style={styles.footer}>
-            
-            </View>
+          </View>
+          {/* <View style={styles.footer}>
+          
+          </View> */}
         </View>
       );
     }
@@ -218,19 +209,21 @@ const styles = StyleSheet.create({
   },
   header:{
     width:"100%",
-    height:110,
+    // height:110,
     flexDirection:"row",
-    borderTopColor:"#e3e3d3",
-    borderTopWidth:.5,
-    borderBottomWidth:1,
+    // borderTopColor:"#fff",
+    // borderTopWidth:.5,
+    borderBottomWidth: 1,
     borderBottomColor:"#e3e3d3",
   },
   center:{
-    marginTop:-45,
-    marginLeft:8,
-    flex: 1,
+    alignItems: 'center',
+    marginTop:-52.5,
+    // marginLeft:10,
+    // marginRight: -8,
+    // flex: 1,
   },
-  footer:{
-    height:60,
-  }
+  // footer:{
+  //   height:60,
+  // }
 });

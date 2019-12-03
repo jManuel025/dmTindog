@@ -5,7 +5,13 @@ export default class Input extends Component {
     render() {
       return (
         // funciona igual que los botones, se sobreescribe la propiedad con props
-        <TextInput placeholder = {this.props.placeholder} style = {styles.input}  secureTextEntry = {this.props.secureTextEntry}></TextInput>
+        <TextInput 
+          placeholder = {this.props.placeholder} 
+          style = {styles.input}  
+          secureTextEntry = {this.props.secureTextEntry} 
+          keyboardType={this.props.keyboardType}
+          onChangeText = {this.props.onChangeText}  
+        ></TextInput>
       )
     }
   }
@@ -16,7 +22,7 @@ export default class Input extends Component {
         backgroundColor: '#F3F3F3',
         padding: 5,
         margin: 5,
-        borderRadius: 20,
+        borderRadius: 5,
         width: 300,
         height: 41.5,
         textAlign: 'center',
