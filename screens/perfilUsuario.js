@@ -3,8 +3,47 @@ import { View , Text, Image, ScrollView, TouchableOpacity, StatusBar } from 'rea
 import Card from '../components/cardDog';
 import styles from '../styles/globalStyles';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import AsyncStorage from '@react-native-community/async-storage';
 
 export default class perfilUsuario extends Component {
+
+  constructor(props){
+    super(props);
+    this.state = {}
+  }
+
+  componentDidMount(){
+    this._getUserInfo();
+  }
+
+  _getUserInfo = async() => {
+    var token = await AsyncStorage.getItem('usertoken');
+    var auth = 'Bearer ' + token;
+    // Crea objeto headers
+    var myheader = new Headers();
+    myheader.append('Authorization', auth);
+
+    try{
+      fetch('https://tindog-api.herokuapp.com/api/v1/auth/loggedUser/',{
+        method: 'POST',
+        headers: myheader,
+      }).then((response) => response.json())
+        .then((responseJson) => {
+          this.setState({
+            name: responseJson.data.user.name,
+          }, function(){
+
+          });
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    }
+    catch(e){
+      console.log(e);
+    }
+  }
+
   render() {
     return (
       <View style = {styles.container}> 
@@ -16,7 +55,7 @@ export default class perfilUsuario extends Component {
           <TouchableOpacity onPress = {() => this.props.navigation.navigate('verUserInfo')}>
             <Image source = {require('../images/usuario.png')} style = {styles.profilePhoto}/>
           </TouchableOpacity>
-          <Text style = {styles.username}>jManuel</Text>
+          <Text style = {styles.username}>{this.state.name}</Text>
           <Text style = {styles.subtitle}>Mis perros</Text>
         </View>
         <View style = {styles.contInf}>

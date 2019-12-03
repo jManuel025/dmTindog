@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {View, Text, StyleSheet, TouchableOpacity, StatusBar} from 'react-native';
 import {ListItem} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import AsyncStorage from '@react-native-community/async-storage';
 
 export default class configuracion extends Component {
   constructor() {
@@ -45,6 +46,21 @@ export default class configuracion extends Component {
     };
   }
 
+  _cerrarSesion = async () => {
+    try {
+      var token = await AsyncStorage.setItem('usertoken', '');
+      if(!token){
+        this.props.navigation.navigate('login');
+      }
+      else{
+        console.log("Ocurrió un error");
+      }
+    } 
+    catch (error) {
+      console.log(error);
+    }
+  }
+
   render() {
     const {menuItems} = this.state;
     return (
@@ -83,14 +99,14 @@ export default class configuracion extends Component {
         <View style={styles.footer}>
           <TouchableOpacity
             style={styles.boton}
-            onPress={() => this.props.navigation.navigate('login')}>
+            onPress={this._cerrarSesion}>
             <Text style={styles.textoBoton1}> Cerrar Sesion</Text>
           </TouchableOpacity>
-          <TouchableOpacity
+          {/* <TouchableOpacity
             style={styles.boton}
             onPress={() => this.props.navigation.navigate('login')}>
             <Text style={styles.textoBoton2}> Eliminar Cuenta</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
         </View>
       </View>
     );
