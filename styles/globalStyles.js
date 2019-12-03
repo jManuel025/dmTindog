@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
         right:20,
     },
     RegisterContainer:{
-        marginTop:40,
+        marginTop:30,
         marginBottom:1,
         backgroundColor: fondo,
     },
@@ -218,6 +218,13 @@ const styles = StyleSheet.create({
         paddingBottom: 100,
         justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor: '#fff'
+    },
+    containerScroll: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#fff',
+        paddingTop: 40
     },
     prueba3:{
         position: 'absolute',
