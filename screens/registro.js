@@ -7,9 +7,6 @@ import Input from '../components/inputs' //-- revisar --
 //Estilos
 import styles from '../styles/globalStyles'
 export default class registro extends Component {
-
-  
-
   constructor(props){
     super(props);
   }
