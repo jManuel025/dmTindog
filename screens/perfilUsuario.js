@@ -31,8 +31,7 @@ export default class perfilUsuario extends Component {
         .then((responseJson) => {
           this.setState({
             name: responseJson.data.user.name,
-          }, function(){
-
+            dogs: responseJson.data.user.dogs,
           });
         })
         .catch((error) => {
@@ -60,7 +59,11 @@ export default class perfilUsuario extends Component {
         </View>
         <View style = {styles.contInf}>
           <ScrollView contentContainerStyle={styles.dogContainer} >
-            <Card imageUri = {require('../images/dog.jpg')} onPress = {() => this.props.navigation.navigate('perfilPerro')}/>
+            {this.state.dogs ?
+              <Text style={styles.mensajes}>Aún no has registrado ningun perro</Text>
+              :
+              <Card imageUri = {require('../images/dog.jpg')} onPress = {() => this.props.navigation.navigate('perfilPerro')}/>
+            }
           </ScrollView>
         </View>
         <TouchableOpacity style = {styles.floatButton} onPress = {() => {this.props.navigation.navigate('formPerro')}}>

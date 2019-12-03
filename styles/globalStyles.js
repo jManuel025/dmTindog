@@ -168,7 +168,7 @@ const styles = StyleSheet.create({
             fontWeight: 'bold',
             fontSize: 15,
             margin: 10,
-            marginTop: -20,
+            marginTop: 10,
             marginBottom: 40,
             padding: 10,
             alignSelf: 'flex-start',
@@ -260,7 +260,12 @@ const styles = StyleSheet.create({
             btnftext:{
                 color: '#fff',
                 fontWeight: 'bold'
-            }
+            },
+    mensajes: {
+        color: textoDark,
+        textAlign: 'center',
+        padding: 25
+    }
 
 });
 

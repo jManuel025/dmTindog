@@ -28,7 +28,7 @@ export default class VerUserInfo extends Component {
         </View>
         <View style = {styles.contInf}>
           <ScrollView contentContainerStyle={styles.dogContainer}>
-            <CardInfo seccion = 'Nombre y Apellido' contenido = 'Aqui va el texto'/>
+            <CardInfo seccion = 'Nombre' contenido = 'Aqui va el texto'/>
             <CardInfo seccion = 'Correo'/>
             <CardInfo seccion = 'Edad'/>
             <CardInfo seccion = 'Telefono'/>
