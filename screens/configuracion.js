@@ -48,8 +48,8 @@ export default class configuracion extends Component {
 
   _cerrarSesion = async () => {
     try {
-      var tokenNull = await AsyncStorage.setItem('usertoken', '');
-      if(!tokenNull){
+      var token = await AsyncStorage.setItem('usertoken', '');
+      if(!token){
         this.props.navigation.navigate('login');
       }
       else{
@@ -102,11 +102,11 @@ export default class configuracion extends Component {
             onPress={this._cerrarSesion}>
             <Text style={styles.textoBoton1}> Cerrar Sesion</Text>
           </TouchableOpacity>
-          <TouchableOpacity
+          {/* <TouchableOpacity
             style={styles.boton}
             onPress={() => this.props.navigation.navigate('login')}>
             <Text style={styles.textoBoton2}> Eliminar Cuenta</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
         </View>
       </View>
     );
