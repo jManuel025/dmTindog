@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {View, ActivityIndicator} from 'react-native';
-import AsyncStorage from '@react-native-community/async-storage';import { getConsoleOutput } from '@jest/console';
+import AsyncStorage from '@react-native-community/async-storage';
 
 
 export default class loading extends Component{
@@ -14,7 +14,7 @@ export default class loading extends Component{
 
     _verifySession = async () => {
         try {
-            const session = await AsyncStorage.getItem('userToken');
+            const session = await AsyncStorage.getItem('usertoken');
             if(session){
                 this.props.navigation.navigate('app');
             }

@@ -4,16 +4,25 @@ import CardInfo from '../components/cardInfo';
 import styles from '../styles/globalStyles';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import AsyncStorage from '@react-native-community/async-storage';
+
 export default class VerUserInfo extends Component {
 
 
   constructor(props){
     super(props);
     this.state = {}
+
+    this.subcription = null
   }
 
   componentDidMount(){
     this._getUserInfo();
+
+    this.subcription = this.props.navigation.addListener('didFocus', this._getUserInfo)
+  }
+
+  componentWillUnmount() {
+    this.subcription.remove()
   }
 
   _getUserInfo = async() => {
@@ -29,7 +38,7 @@ export default class VerUserInfo extends Component {
         headers: myheader,
       }).then((response) => response.json())
         .then((responseJson) => {
-          console.log( responseJson.data.user);
+          // console.log( responseJson.data.user);
           
           this.setState({
             name: responseJson.data.user.name,
@@ -66,7 +75,7 @@ export default class VerUserInfo extends Component {
           </TouchableOpacity>
         </View>
         <Image source = {require('../images/usuario.png')} style = {styles.profilePhoto}/>
-          <Text style = {styles.username}>{this.state.name}</Text>
+          {/* <Text style = {styles.username}>{this.state.name}</Text> */}
           <View style = {styles.contBotonCirc}>
             <View style = {styles.contBtnTxt}>
             </View>
@@ -74,7 +83,7 @@ export default class VerUserInfo extends Component {
         </View>
         <View style = {styles.contInf}>
           <ScrollView contentContainerStyle={styles.dogContainer}>
-            <CardInfo seccion = 'Nombre y Apellido' contenido = {this.state.name}/>
+            <CardInfo seccion = 'Nombre' contenido = {this.state.name}/>
             <CardInfo seccion = 'Correo'contenido = {this.state.email}/>
             <CardInfo seccion = 'Edad'contenido = {this.state.age}/>
             <CardInfo seccion = 'Telefono'contenido = {this.state.phone}/>

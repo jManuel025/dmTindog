@@ -204,7 +204,7 @@ const styles = StyleSheet.create({
     },
     contSelect:{
         width: '85%',
-        paddingTop: 15,
+        // paddingTop: 15,
     },
     prueba:{
         flexDirection: 'row',
@@ -260,7 +260,29 @@ const styles = StyleSheet.create({
             btnftext:{
                 color: '#fff',
                 fontWeight: 'bold'
-            }
+            },
+    mensajes: {
+        color: textoDark,
+        textAlign: 'center',
+        padding: 25
+    },
+    picker:{
+        width: "100%",
+        height: 50,
+        justifyContent: "center",
+        // backgroundColor: '#F3F3F3',
+        // padding: 8.5,
+        // margin: 1.0,
+        alignSelf: 'center',
+        borderRadius: 20,
+        color:"#A8A7A7",
+        alignItems:"center",
+        alignContent:"center",
+    },pickeri:{
+        fontSize: 1,
+        textAlign: 'center',
+        color: '#A8A7A7',
+    }
 
 });
 

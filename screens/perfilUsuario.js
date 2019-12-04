@@ -10,10 +10,16 @@ export default class perfilUsuario extends Component {
   constructor(props){
     super(props);
     this.state = {}
+    this.subcription = null
   }
 
   componentDidMount(){
     this._getUserInfo();
+    this._getUserDogs();
+    this.subcription = this.props.navigation.addListener('didFocus', this._getUserInfo)
+  }
+  componentWillUnmount() {
+    this.subcription.remove()
   }
 
   _getUserInfo = async() => {
@@ -29,12 +35,35 @@ export default class perfilUsuario extends Component {
         headers: myheader,
       }).then((response) => response.json())
         .then((responseJson) => {
-          console.log( responseJson.data.user);
-          
           this.setState({
             name: responseJson.data.user.name,
-          }, function(){
+          });
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    }
+    catch(e){
+      console.log(e);
+    }
+  }
 
+  _getUserDogs = async() => {
+    var token = await AsyncStorage.getItem('usertoken');
+    var auth = 'Bearer ' + token;
+    // Crea objeto headers
+    var myheader = new Headers();
+    myheader.append('Authorization', auth);
+
+    try{
+      fetch('https://tindog-api.herokuapp.com/api/v1/user/dogs/',{
+        method: 'GET',
+        headers: myheader,
+      }).then((response) => response.json())
+        .then((responseJson) => {
+          this.setState({
+            cant: responseJson.count,
+            dogs: responseJson.dogs,
           });
         })
         .catch((error) => {
@@ -63,7 +92,11 @@ export default class perfilUsuario extends Component {
         </View>
         <View style = {styles.contInf}>
           <ScrollView contentContainerStyle={styles.dogContainer} >
-            <Card imageUri = {require('../images/dog.jpg')} onPress = {() => this.props.navigation.navigate('perfilPerro')}/>
+            {this.state.cant <= 0 ?
+              <Text style={styles.mensajes}>Aún no has registrado ningun perro</Text>
+              :
+              <Card imageUri = {require('../images/dog.jpg')} onPress = {() => this.props.navigation.navigate('perfilPerro')}/>
+            }
           </ScrollView>
         </View>
         <TouchableOpacity style = {styles.floatButton} onPress = {() => {this.props.navigation.navigate('formPerro')}}>
