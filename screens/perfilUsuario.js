@@ -10,11 +10,16 @@ export default class perfilUsuario extends Component {
   constructor(props){
     super(props);
     this.state = {}
+    this.subcription = null
   }
 
   componentDidMount(){
     this._getUserInfo();
     this._getUserDogs();
+    this.subcription = this.props.navigation.addListener('didFocus', this._getUserInfo)
+  }
+  componentWillUnmount() {
+    this.subcription.remove()
   }
 
   _getUserInfo = async() => {

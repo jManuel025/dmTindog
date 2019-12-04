@@ -4,16 +4,25 @@ import CardInfo from '../components/cardInfo';
 import styles from '../styles/globalStyles';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import AsyncStorage from '@react-native-community/async-storage';
+
 export default class VerUserInfo extends Component {
 
 
   constructor(props){
     super(props);
     this.state = {}
+
+    this.subcription = null
   }
 
   componentDidMount(){
     this._getUserInfo();
+
+    this.subcription = this.props.navigation.addListener('didFocus', this._getUserInfo)
+  }
+
+  componentWillUnmount() {
+    this.subcription.remove()
   }
 
   _getUserInfo = async() => {

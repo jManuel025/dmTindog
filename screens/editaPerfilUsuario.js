@@ -58,7 +58,7 @@ export default class editaPerfilUsuario extends Component {
       email:this.state.Nemail,
       age:this.state.Nage,
       phone:this.state.Nphone,
-      
+      photo: "no-photo.jpg"
     };
     var token = await AsyncStorage.getItem('usertoken');
     var auth = 'Bearer ' + token;
@@ -80,6 +80,7 @@ export default class editaPerfilUsuario extends Component {
           }
           else{
             alert("Ocurrio un error");
+            // console.log(responseJson);
           }
         })
         .catch((error) => {
@@ -106,7 +107,6 @@ export default class editaPerfilUsuario extends Component {
             <TextInput placeholder={this.state.email} style={styles.inputRegistro} onChangeText={Nemail=>this.setState({Nemail})} />
             <TextInput placeholder={this.state.age} style={styles.inputRegistro} onChangeText={Nage=>this.setState({Nage})}/>
             <TextInput placeholder={this.state.phone} style={styles.inputRegistro} onChangeText={Nphone=>this.setState({Nphone})}/>
-            
             <View style = {styles.prueba}>
               <TouchableOpacity style = {styles.btnform} onPress = {() => this.props.navigation.navigate('verUserInfo')}>
                 <Text style = {styles.btnftext}>Cancelar</Text>
