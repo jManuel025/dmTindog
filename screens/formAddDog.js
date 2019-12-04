@@ -9,9 +9,14 @@ export default class addPerro extends Component {
   constructor(props){
     super(props);
     this.state = {
-      sex: "Macho",
+      sex: ''
     }
   }
+
+  updatePicker = (sex) => {
+    this.setState({ sex: sex })
+  }
+
   _addDog = async() => {
     var datos = {
       name: this.state.name,
@@ -19,8 +24,8 @@ export default class addPerro extends Component {
       age: this.state.age,
       breed: this.state.breed,
       sex: this.state.sex,
-      vaccines: this.state.vaccines,
-      accolades: this.state.accolades
+      // vaccines: this.state.vaccines,
+      // accolades: this.state.accolades
     };
     console.log(datos);
     
@@ -29,6 +34,9 @@ export default class addPerro extends Component {
     // Crea objeto headers
     var myheader = new Headers();
     myheader.append('Authorization', auth);
+    myheader.append('Content-Type', 'application/json');
+    myheader.append('Accept', 'application/json');
+
     fetch('https://tindog-api.herokuapp.com/api/v1/user/dogs',{
       method: 'POST',
       headers: myheader,
@@ -36,10 +44,9 @@ export default class addPerro extends Component {
     }).then((response) => response.json())
       .then((responseJson) => {
         console.log(responseJson);
-        
         if(responseJson.success){
           alert("Perro creado exitosamente");
-          this.props.navigation.navigate('main');
+          this.props.navigation.navigate('perfilUsuario');
           // console.log(responseJson.token);
         }
       })
@@ -66,21 +73,21 @@ export default class addPerro extends Component {
               <TextInput placeholder='Nombre' style={styles.inputRegistro} onChangeText={(name) => this.setState({name})}/>
               <TextInput placeholder='Descripción' style={styles.inputRegistro} multiline={true} numberOfLines={4} onChangeText={(description) => this.setState({description})}/>
               <View style={styles.contSelect}>
-                <Text style = {styles.subadd}>Sexo</Text>
-                <Picker selectedValue={this.state.sex} style={styles.select} onValueChange={(itemValue, itemIndex) => this.setState({sexo: itemValue})}>
-                  <Picker.Item label="Macho" value="macho" style={styles.inputRegistro}/>
-                  <Picker.Item label="Hembra" value="hembra" style={styles.inputRegistro}/>
+                <Picker style = {styles.picker} itemStyle={styles.pickeri} selectedValue = {this.state.sex} onValueChange = {this.updatePicker}>
+                    <Picker.Item label = "Selecciona el sexo" value = "" />
+                    <Picker.Item label = "Macho" value = "Macho" />
+                    <Picker.Item label = "Hembra" value = "Hembra" />
                 </Picker>
               </View>
               <TextInput placeholder='Raza' style={styles.inputRegistro} onChangeText={(breed) => this.setState({breed})}/>
               <TextInput placeholder='Edad' style={styles.inputRegistro} onChangeText={(age) => this.setState({age})}/>
-              <TextInput placeholder='Vacunas' style={styles.inputRegistro} onChangeText={(vaccines) => this.setState({vaccines})}/>
-              <TextInput placeholder='Certificados' style={styles.inputRegistro} onChangeText={(accolades) => this.setState({accolades})}/>
+              {/* <TextInput placeholder='Vacunas' style={styles.inputRegistro} onChangeText={(vaccines) => this.setState({vaccines})}/>
+              <TextInput placeholder='Certificados' style={styles.inputRegistro} onChangeText={(accolades) => this.setState({accolades})}/> */}
               <View style = {styles.prueba}>
                 <TouchableOpacity style = {styles.btnform} onPress = {() => this.props.navigation.navigate('perfilUsuario')}>
                   <Text style = {styles.btnftext}>Cancelar</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style = {styles.btnform} onPress = {() => this._addDog()}>
+                <TouchableOpacity style = {styles.btnform} onPress = {this._addDog}>
                   <Text style = {styles.btnftext}>Aceptar</Text>
                 </TouchableOpacity>
               </View>

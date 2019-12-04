@@ -52,10 +52,11 @@ const styles = new StyleSheet.create({
       },
       titleSeccion:{
         fontWeight: 'bold',
-        fontSize: 16,
+        fontSize: 15,
         color: '#888F94',
       },
       conText:{
         textAlign: 'justify',
+        color: '#676C70',
       }
 });

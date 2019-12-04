@@ -29,7 +29,7 @@ export default class VerUserInfo extends Component {
         headers: myheader,
       }).then((response) => response.json())
         .then((responseJson) => {
-          console.log( responseJson.data.user);
+          // console.log( responseJson.data.user);
           
           this.setState({
             name: responseJson.data.user.name,
@@ -66,7 +66,7 @@ export default class VerUserInfo extends Component {
           </TouchableOpacity>
         </View>
         <Image source = {require('../images/usuario.png')} style = {styles.profilePhoto}/>
-          <Text style = {styles.username}>{this.state.name}</Text>
+          {/* <Text style = {styles.username}>{this.state.name}</Text> */}
           <View style = {styles.contBotonCirc}>
             <View style = {styles.contBtnTxt}>
             </View>
@@ -74,7 +74,7 @@ export default class VerUserInfo extends Component {
         </View>
         <View style = {styles.contInf}>
           <ScrollView contentContainerStyle={styles.dogContainer}>
-            <CardInfo seccion = 'Nombre y Apellido' contenido = {this.state.name}/>
+            <CardInfo seccion = 'Nombre' contenido = {this.state.name}/>
             <CardInfo seccion = 'Correo'contenido = {this.state.email}/>
             <CardInfo seccion = 'Edad'contenido = {this.state.age}/>
             <CardInfo seccion = 'Telefono'contenido = {this.state.phone}/>

@@ -25,7 +25,6 @@ export default class editaPerfilUsuario extends Component {
     // Crea objeto headers
     var myheader = new Headers();
     myheader.append('Authorization', auth);
-
     try{
       fetch('https://tindog-api.herokuapp.com/api/v1/auth/loggedUser/',{
         method: 'POST',
@@ -33,7 +32,6 @@ export default class editaPerfilUsuario extends Component {
       }).then((response) => response.json())
         .then((responseJson) => {
           console.log( responseJson.data.user);
-          
           this.setState({
             name: responseJson.data.user.name,
             email: responseJson.data.user.email,
@@ -53,9 +51,8 @@ export default class editaPerfilUsuario extends Component {
     }
 
   }
-  _UpdateUserInfo= async() => { 
-    console.log(this.state.Nname);
-    
+
+  _updateUserInfo= async() => { 
     var datos = {
       name:this.state.Nname,
       email:this.state.Nemail,
@@ -68,23 +65,21 @@ export default class editaPerfilUsuario extends Component {
     // Crea objeto headers
     var myheader = new Headers();
     myheader.append('Authorization', auth);
-
+    myheader.append('Content-Type', 'application/json');
+    myheader.append('Accept', 'application/json');
     try{
-      fetch('https://tindog-api.herokuapp.com/api/v1/auth/user',{
+      fetch('https://tindog-api.herokuapp.com/api/v1/auth/user/',{
         method: 'PUT',
         headers: myheader,
         body: JSON.stringify(datos),
       }).then((response) => response.json())
         .then((responseJson) => {
-          console.log(responseJson);
-          
           if(responseJson.success){
-            alert("Inicio de sesión exitoso");
-            AsyncStorage.setItem('usertoken', responseJson.token);
-            this.props.navigation.navigate('app');
+            alert("Actualización exitosa");
+            this.props.navigation.navigate('verUserInfo');
           }
           else{
-            alert("Datos incorrectos, intenta otra vez");
+            alert("Ocurrio un error");
           }
         })
         .catch((error) => {
@@ -107,8 +102,7 @@ export default class editaPerfilUsuario extends Component {
               <Icon name='camera-retro' color='#fff' size={60}/>
             </TouchableOpacity>
             <Text style = {styles.subadd}>Actualizar foto</Text>
-            <TextInput placeholder={this.state.name} style={styles.inputRegistro}onChangeText={Nname=>this.setState({Nname})}/>
-            
+            <TextInput placeholder={this.state.name} style={styles.inputRegistro} onChangeText={Nname=>this.setState({Nname})}/>
             <TextInput placeholder={this.state.email} style={styles.inputRegistro} onChangeText={Nemail=>this.setState({Nemail})} />
             <TextInput placeholder={this.state.age} style={styles.inputRegistro} onChangeText={Nage=>this.setState({Nage})}/>
             <TextInput placeholder={this.state.phone} style={styles.inputRegistro} onChangeText={Nphone=>this.setState({Nphone})}/>
@@ -117,7 +111,7 @@ export default class editaPerfilUsuario extends Component {
               <TouchableOpacity style = {styles.btnform} onPress = {() => this.props.navigation.navigate('verUserInfo')}>
                 <Text style = {styles.btnftext}>Cancelar</Text>
               </TouchableOpacity>
-              <TouchableOpacity style = {styles.btnform} onPress = {() => this._UpdateUserInfo()}>
+              <TouchableOpacity style = {styles.btnform} onPress = {this._updateUserInfo}>
                 <Text style = {styles.btnftext}>Aceptar</Text>
               </TouchableOpacity>
             </View>

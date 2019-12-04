@@ -30,11 +30,8 @@ export default class perfilUsuario extends Component {
         headers: myheader,
       }).then((response) => response.json())
         .then((responseJson) => {
-          console.log( responseJson.data.user);
-          
           this.setState({
             name: responseJson.data.user.name,
-            // dogs: responseJson.data.user.dogs,
           });
         })
         .catch((error) => {
