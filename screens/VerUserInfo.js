@@ -3,8 +3,54 @@ import { View , Text, ScrollView, TouchableOpacity, Image, StatusBar } from 'rea
 import CardInfo from '../components/cardInfo';
 import styles from '../styles/globalStyles';
 import Icon from 'react-native-vector-icons/FontAwesome';
-
+import AsyncStorage from '@react-native-community/async-storage';
 export default class VerUserInfo extends Component {
+
+
+  constructor(props){
+    super(props);
+    this.state = {}
+  }
+
+  componentDidMount(){
+    this._getUserInfo();
+  }
+
+  _getUserInfo = async() => {
+    var token = await AsyncStorage.getItem('usertoken');
+    var auth = 'Bearer ' + token;
+    // Crea objeto headers
+    var myheader = new Headers();
+    myheader.append('Authorization', auth);
+
+    try{
+      fetch('https://tindog-api.herokuapp.com/api/v1/auth/loggedUser/',{
+        method: 'POST',
+        headers: myheader,
+      }).then((response) => response.json())
+        .then((responseJson) => {
+          console.log( responseJson.data.user);
+          
+          this.setState({
+            name: responseJson.data.user.name,
+            email: responseJson.data.user.email,
+            location: responseJson.data.user.location.city +" , "+responseJson.data.user.location.country,
+            phone: responseJson.data.user.phone,
+            age: responseJson.data.user.age,
+          }, function(){
+
+          });
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    }
+    catch(e){
+      console.log(e);
+    }
+
+  }
+
   render() {
     return (
       <View style = {styles.container}>
@@ -20,7 +66,7 @@ export default class VerUserInfo extends Component {
           </TouchableOpacity>
         </View>
         <Image source = {require('../images/usuario.png')} style = {styles.profilePhoto}/>
-          <Text style = {styles.username}>Fulanito</Text>
+          <Text style = {styles.username}>{this.state.name}</Text>
           <View style = {styles.contBotonCirc}>
             <View style = {styles.contBtnTxt}>
             </View>
@@ -28,11 +74,11 @@ export default class VerUserInfo extends Component {
         </View>
         <View style = {styles.contInf}>
           <ScrollView contentContainerStyle={styles.dogContainer}>
-            <CardInfo seccion = 'Nombre' contenido = 'Aqui va el texto'/>
-            <CardInfo seccion = 'Correo'/>
-            <CardInfo seccion = 'Edad'/>
-            <CardInfo seccion = 'Telefono'/>
-            <CardInfo seccion = 'Ubicacion'/>
+            <CardInfo seccion = 'Nombre y Apellido' contenido = {this.state.name}/>
+            <CardInfo seccion = 'Correo'contenido = {this.state.email}/>
+            <CardInfo seccion = 'Edad'contenido = {this.state.age}/>
+            <CardInfo seccion = 'Telefono'contenido = {this.state.phone}/>
+            <CardInfo seccion = 'Ubicacion'contenido = {this.state.location}/>
           </ScrollView>
         </View>
       </View>
