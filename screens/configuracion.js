@@ -9,22 +9,14 @@ export default class configuracion extends Component {
     super();
     this.state = {
       menuItems: [
-        {
-          title: 'Ubicación',
-          icon: 'av-timer',
-          // iconType:"FontAwesome",
-          // iconNameRight:"chevron-right",
-          // iconColorRight:"#ccc",
-
-          onPress: () => console.log('Click'),
-        },
+        
         {
           title: 'Politica de Privacidad',
           // iconType:"FontAwesome",
           // iconNameRight:"chevron-right",
           // iconColorRight:"#ccc",
 
-          onPress: () => console.log('Click'),
+          onPress: () => this.props.navigation.navigate('politicas'),
         },
         {
           title: 'Terminos y Condiciones',
@@ -32,16 +24,9 @@ export default class configuracion extends Component {
           // iconNameRight:"chevron-right",
           // iconColorRight:"#ccc",
 
-          onPress: () => console.log('Click'),
+          onPress: () => this.props.navigation.navigate('terminos'),
         },
-        {
-          title: 'Licencias',
-          // iconType:"FontAwesome",
-          // iconNameRight:"chevron-right",
-          // iconColorRight:"#ccc",
-
-          onPress: () => console.log('Click'),
-        },
+        
       ],
     };
   }
