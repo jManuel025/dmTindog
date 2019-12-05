@@ -3,9 +3,13 @@ import {Image, Text, StyleSheet, View, TouchableOpacity} from 'react-native';
 import {withNavigation} from 'react-navigation' //para que se pueda navegar a pantallas que no estén en la ruta main o tab 
 
 class Card extends Component {
+  _handlePress = () => {
+    this.props.onPress(this.props.id)
+  }
+
   render() {
     return (
-      <TouchableOpacity style={styles.mainCard} onPress={() => this.props.onPress}>
+      <TouchableOpacity style={styles.mainCard} onPress={this._handlePress}>
         <View style={styles.imageCard}>
           <Image source = {this.props.imageUri} style = {styles.dogPhoto}/>
         </View>

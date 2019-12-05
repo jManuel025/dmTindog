@@ -80,6 +80,12 @@ export default class perfilUsuario extends Component {
     }
   }
 
+  _handleCardPress = (id) => {
+    this.props.navigation.navigate('perfilPerro', {
+      id: id
+    })
+  }
+
   render() {
     return (
       <View style = {styles.container}> 
@@ -104,7 +110,7 @@ export default class perfilUsuario extends Component {
                   data = {this.state.dogs}
                   keyExtractor = {item => item._id}
                   renderItem = {({item}) => (
-                    <Card imageUri = {require('../images/dog.jpg')} nombre = {item.name} raza = {item.breed} edad = {item.age}/> //onPress = {() => this.props.navigation.navigate('perfilPerro')}
+                    <Card imageUri = {require('../images/dog.jpg')} id={item._id} nombre = {item.name} raza = {item.breed} edad = {item.age} onPress={this._handleCardPress}/> //onPress = {() => this.props.navigation.navigate('perfilPerro')}
                   )}
                 />
               </View>
