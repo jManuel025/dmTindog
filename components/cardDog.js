@@ -10,9 +10,9 @@ class Card extends Component {
           <Image source = {this.props.imageUri} style = {styles.dogPhoto}/>
         </View>
         <View style={styles.infoCard}>
-          <Text style = {styles.campos}>Nombre: </Text>
-          <Text style = {styles.campos}>Raza: </Text>
-          <Text style = {styles.campos}>Edad: </Text>
+          <Text style = {styles.campos}>Nombre: {this.props.nombre}</Text>
+          <Text style = {styles.campos}>Raza: {this.props.raza}</Text>
+          <Text style = {styles.campos}>Edad: {this.props.edad}</Text>
         </View>
       </TouchableOpacity>
     );

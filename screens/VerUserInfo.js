@@ -11,7 +11,6 @@ export default class VerUserInfo extends Component {
   constructor(props){
     super(props);
     this.state = {}
-
     this.subcription = null
   }
 
