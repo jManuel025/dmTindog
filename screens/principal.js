@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import { StyleSheet,View , Text, Image, ScrollView,Dimensions, Animated, PanResponder, StatusBar, TouchableOpacity} from 'react-native';
+import { StyleSheet,View , Text, Image, ScrollView,Dimensions, Animated, PanResponder, StatusBar, TouchableOpacity,FlatList} from 'react-native';
 import styless from '../styles/globalStyles';
 import Icon from 'react-native-vector-icons/FontAwesome'
+import AsyncStorage from '@react-native-community/async-storage';
 const SCREEN_HEIGHT = Dimensions.get('window').height
 const SCREEN_WIDTH = Dimensions.get('window').width
 const Users = [
@@ -14,8 +15,10 @@ const Users = [
 export default class principal extends Component {
 
   constructor() {
-    super()
 
+    super()
+    
+    this.subcription = null
     this.position = new Animated.ValueXY()
     this.state = {
       currentIndex: 0
@@ -59,6 +62,7 @@ export default class principal extends Component {
 
   }
   componentWillMount() {
+    
     this.PanResponder = PanResponder.create({
 
       onStartShouldSetPanResponder: (evt, gestureState) => true,
@@ -95,7 +99,70 @@ export default class principal extends Component {
       }
     })
   }
+  componentWillUnmount() {
+    this.subcription.remove()
+  }
+  componentDidMount(){
+    this._getUserDogs();
+    this.subcription = this.props.navigation.addListener('didFocus', this._getUserDogs)
+  }
+  _getDogs = async() => {
+    var token = await AsyncStorage.getItem('usertoken');
+    
+    var auth = 'Bearer ' + token;
+    // Crea objeto headers
+    var myheader = new Headers();
+    myheader.append('Authorization', auth);
+    myheader.append('Content-Type', 'application/json');
+    myheader.append('Accept', 'application/json');
 
+    try{
+      fetch('https://tindog-api.herokuapp.com/api/v1/user/dogs/possibleMatches',{
+        method: 'POST',
+        headers: myheader,
+      }).then((response) => response.json())
+        .then((responseJson) => {
+         
+            console.log(responseJson);
+            
+          
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    }
+    catch(e){
+      console.log(e);
+    }
+  }
+  _getUserDogs = async() => {
+    var token = await AsyncStorage.getItem('usertoken');
+    var auth = 'Bearer ' + token;
+    // Crea objeto headers
+    var myheader = new Headers();
+    myheader.append('Authorization', auth);
+
+    try{
+      fetch('https://tindog-api.herokuapp.com/api/v1/user/dogs/',{
+        method: 'GET',
+        headers: myheader,
+      }).then((response) => response.json())
+        .then((responseJson) => {
+          this.setState({
+            cant: responseJson.count,
+            dogs: responseJson.dogs,
+          });
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    }
+    catch(e){
+      console.log(e);
+    }
+
+  }
+  
   renderUsers = () => {
 
     return Users.map((item, i) => {
@@ -165,8 +232,8 @@ export default class principal extends Component {
         <View style={styles.container}>
           <StatusBar backgroundColor='#fff' barStyle="dark-content"/>
           <View style={styles.header}>
-            <ScrollView  horizontal={true}>
-              <TouchableOpacity style = {{width: 65, height: 65, borderRadius: 200 / 2, marginTop: 12.5, marginBottom: 12.5,marginLeft:15, backgroundColor: '#FF3980DD', justifyContent: 'center', alignItems: 'center'}} onPress={() => this.props.navigation.navigate('formPerro')}>
+            {/* <ScrollView  > */}
+              {/* <TouchableOpacity style = {{width: 65, height: 65, borderRadius: 200 / 2, marginTop: 12.5, marginBottom: 12.5,marginLeft:15, backgroundColor: '#FF3980DD', justifyContent: 'center', alignItems: 'center'}} onPress={() => this.props.navigation.navigate('formPerro')}>
                 <Icon name='plus' color='#fff' size={15}/>
               </TouchableOpacity>
               <TouchableOpacity style = {{width: 70, height: 70, borderRadius: 200 / 2, marginTop: 10, marginBottom: 10, marginLeft:15, backgroundColor: '#FF3980DD', justifyContent: 'center', alignItems: 'center'}}>
@@ -186,8 +253,32 @@ export default class principal extends Component {
                     style={{ width: 62.5, height: 62.5, borderRadius: 200 / 2}}
                   />
                 </View>
-              </TouchableOpacity>
-            </ScrollView>
+              </TouchableOpacity> */}
+              {this.state.cant <= 0 ?
+              <Text style={styles.mensajes}>Aún no has registrado ningun perro</Text>
+              :
+              <View >
+                <FlatList
+                  horizontal
+                  data = {this.state.dogs}
+                  keyExtractor = {(item, index) => item._id}
+                  renderItem = {({item}) => (
+                    <TouchableOpacity style = {{width: 70, height: 70, borderRadius: 200 / 2, marginTop: 10, marginBottom: 10, marginLeft:15, backgroundColor: '#FF3980DD', justifyContent: 'center', alignItems: 'center'}}>
+                      <View style = {{width: 65, height: 65, borderRadius: 200 / 2, backgroundColor: '#fff', justifyContent: 'center', alignItems: 'center'}}>
+                        <Image
+                          source = {require('../images/dog.jpg')}
+                          //borderRadius style will help us make the Round Shape Image
+                          style={{ width: 62.5, height: 62.5, borderRadius: 200 / 2}}
+                        />
+                        
+                      </View>
+                      <Text style={{position:"absolute",color:"#FF3980",fontWeight:"bold",fontSize:14,top:70}}>{item.name}</Text>
+                    </TouchableOpacity>
+                  )}
+                />
+              </View>
+            }
+            {/* </ScrollView> */}
           </View>
           <View style={styles.center}>
             {this.renderUsers()}
@@ -209,7 +300,7 @@ const styles = StyleSheet.create({
   },
   header:{
     width:"100%",
-    // height:110,
+    height:110,
     flexDirection:"row",
     // borderTopColor:"#fff",
     // borderTopWidth:.5,

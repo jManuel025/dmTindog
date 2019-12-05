@@ -5,6 +5,7 @@ import ScndNavigator from './ScndNavigator';
 import loading from '../screens/loading';
 
 export default createAppContainer(createSwitchNavigator({
+    
     loading: loading,
     login: login,
     registro: registro,
