@@ -15,7 +15,7 @@ export default class editaPerfilUsuario extends Component {
       photo: ""
     }
   }
-  // probar otra vez con formdata()
+  // probar otra vez con formdata
   componentDidMount(){
     this._getUserInfo();
   }

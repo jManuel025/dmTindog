@@ -102,7 +102,7 @@ export default class perfilUsuario extends Component {
               <View>
                 <FlatList
                   data = {this.state.dogs}
-                  keyExtractor = {(item, index) => item._id}
+                  keyExtractor = {item => item._id}
                   renderItem = {({item}) => (
                     <Card imageUri = {require('../images/dog.jpg')} nombre = {item.name} raza = {item.breed} edad = {item.age}/> //onPress = {() => this.props.navigation.navigate('perfilPerro')}
                   )}
