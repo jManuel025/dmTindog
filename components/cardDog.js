@@ -5,7 +5,7 @@ import {withNavigation} from 'react-navigation' //para que se pueda navegar a pa
 class Card extends Component {
   render() {
     return (
-      <TouchableOpacity style={styles.mainCard} onPress={this.props.onPress}>
+      <TouchableOpacity style={styles.mainCard} onPress={() => this.props.onPress}>
         <View style={styles.imageCard}>
           <Image source = {this.props.imageUri} style = {styles.dogPhoto}/>
         </View>

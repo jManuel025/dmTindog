@@ -4,14 +4,16 @@ import Card from '../components/cardDog';
 import styles from '../styles/globalStyles';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import AsyncStorage from '@react-native-community/async-storage';
-import { List, ListItem } from 'react-native-elements';
+import { ListItem } from 'react-native-elements';
 
 
 export default class perfilUsuario extends Component {
 
   constructor(props){
     super(props);
-    this.state = {}
+    this.state = {
+      dogs: []
+    }
     this.subcription = null
   }
 
@@ -64,11 +66,10 @@ export default class perfilUsuario extends Component {
         headers: myheader,
       }).then((response) => response.json())
         .then((responseJson) => {
-          // this.setState({
-          //   cant: responseJson.count,
-          //   dogs: responseJson.dogs,
-          // });
-          return responseJson.dogs
+          this.setState({
+            cant: responseJson.count,
+            dogs: responseJson.dogs,
+          });
         })
         .catch((error) => {
           console.log(error)
@@ -80,7 +81,6 @@ export default class perfilUsuario extends Component {
   }
 
   render() {
-    const dogs = this._getUserDogs;
     return (
       <View style = {styles.container}> 
         <StatusBar backgroundColor='#fff' barStyle="dark-content"/>
@@ -95,13 +95,21 @@ export default class perfilUsuario extends Component {
           <Text style = {styles.subtitle}>Mis perros</Text>
         </View>
         <View style = {styles.contInf}>
-          <ScrollView contentContainerStyle={styles.dogContainer} >
+          {/* <ScrollView contentContainerStyle={styles.dogContainer} > */}
             {this.state.cant <= 0 ?
               <Text style={styles.mensajes}>Aún no has registrado ningun perro</Text>
               :
-              <Text style={styles.mensajes}>Si hay perros</Text>
+              <View>
+                <FlatList
+                  data = {this.state.dogs}
+                  keyExtractor = {(item, index) => item._id}
+                  renderItem = {({item}) => (
+                    <Card imageUri = {require('../images/dog.jpg')} nombre = {item.name} raza = {item.breed} edad = {item.age}/> //onPress = {() => this.props.navigation.navigate('perfilPerro')}
+                  )}
+                />
+              </View>
             }
-          </ScrollView>
+          {/* </ScrollView> */}
         </View>
         <TouchableOpacity style = {styles.floatButton} onPress = {() => {this.props.navigation.navigate('formPerro')}}>
           <Icon name='plus' color='#fff' size={25}/>
