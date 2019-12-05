@@ -152,6 +152,7 @@ export default class principal extends Component {
             cant: responseJson.count,
             dogs: responseJson.dogs,
           });
+          console.log(responseJson.dogs[0].photo);
         })
         .catch((error) => {
           console.log(error)
@@ -266,7 +267,7 @@ export default class principal extends Component {
                     <TouchableOpacity style = {{width: 70, height: 70, borderRadius: 200 / 2, marginTop: 10, marginBottom: 10, marginLeft:15, backgroundColor: '#FF3980DD', justifyContent: 'center', alignItems: 'center'}}>
                       <View style = {{width: 65, height: 65, borderRadius: 200 / 2, backgroundColor: '#fff', justifyContent: 'center', alignItems: 'center'}}>
                         <Image
-                          source = {require('../images/dog.jpg')}
+                          source={{uri: item.photo}}
                           //borderRadius style will help us make the Round Shape Image
                           style={{ width: 62.5, height: 62.5, borderRadius: 200 / 2}}
                         />
