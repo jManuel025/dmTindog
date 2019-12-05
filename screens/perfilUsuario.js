@@ -1,15 +1,19 @@
 import React, {Component} from 'react';
-import { View , Text, Image, ScrollView, TouchableOpacity, StatusBar } from 'react-native';
+import { View , Text, Image, ScrollView, TouchableOpacity, StatusBar, FlatList } from 'react-native';
 import Card from '../components/cardDog';
 import styles from '../styles/globalStyles';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import AsyncStorage from '@react-native-community/async-storage';
+import { ListItem } from 'react-native-elements';
+
 
 export default class perfilUsuario extends Component {
 
   constructor(props){
     super(props);
-    this.state = {}
+    this.state = {
+      dogs: []
+    }
     this.subcription = null
   }
 
@@ -17,7 +21,9 @@ export default class perfilUsuario extends Component {
     this._getUserInfo();
     this._getUserDogs();
     this.subcription = this.props.navigation.addListener('didFocus', this._getUserInfo)
+    this.subcription = this.props.navigation.addListener('didFocus', this._getUserDogs)
   }
+
   componentWillUnmount() {
     this.subcription.remove()
   }
@@ -28,7 +34,6 @@ export default class perfilUsuario extends Component {
     // Crea objeto headers
     var myheader = new Headers();
     myheader.append('Authorization', auth);
-
     try{
       fetch('https://tindog-api.herokuapp.com/api/v1/auth/loggedUser/',{
         method: 'POST',
@@ -37,6 +42,7 @@ export default class perfilUsuario extends Component {
         .then((responseJson) => {
           this.setState({
             name: responseJson.data.user.name,
+            // photo: responseJson.data.user.photo
           });
         })
         .catch((error) => {
@@ -54,7 +60,6 @@ export default class perfilUsuario extends Component {
     // Crea objeto headers
     var myheader = new Headers();
     myheader.append('Authorization', auth);
-
     try{
       fetch('https://tindog-api.herokuapp.com/api/v1/user/dogs/',{
         method: 'GET',
@@ -73,7 +78,6 @@ export default class perfilUsuario extends Component {
     catch(e){
       console.log(e);
     }
-
   }
 
   render() {
@@ -91,13 +95,21 @@ export default class perfilUsuario extends Component {
           <Text style = {styles.subtitle}>Mis perros</Text>
         </View>
         <View style = {styles.contInf}>
-          <ScrollView contentContainerStyle={styles.dogContainer} >
+          {/* <ScrollView contentContainerStyle={styles.dogContainer} > */}
             {this.state.cant <= 0 ?
               <Text style={styles.mensajes}>Aún no has registrado ningun perro</Text>
               :
-              <Card imageUri = {require('../images/dog.jpg')} onPress = {() => this.props.navigation.navigate('perfilPerro')}/>
+              <View>
+                <FlatList
+                  data = {this.state.dogs}
+                  keyExtractor = {(item, index) => item._id}
+                  renderItem = {({item}) => (
+                    <Card imageUri = {require('../images/dog.jpg')} nombre = {item.name} raza = {item.breed} edad = {item.age}/> //onPress = {() => this.props.navigation.navigate('perfilPerro')}
+                  )}
+                />
+              </View>
             }
-          </ScrollView>
+          {/* </ScrollView> */}
         </View>
         <TouchableOpacity style = {styles.floatButton} onPress = {() => {this.props.navigation.navigate('formPerro')}}>
           <Icon name='plus' color='#fff' size={25}/>
