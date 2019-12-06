@@ -44,16 +44,16 @@ export default class addPerro extends Component {
   }
 
   _addDog = async() => {
-    // var datos = {
-    //   name: this.state.name,
-    //   description: this.state.description,
-    //   age: this.state.age,
-    //   breed: this.state.breed,
-    //   sex: this.state.sex,
-    //   // vaccines: this.state.vaccines,
-    //   // accolades: this.state.accolades
-    // };
-    // console.log(datos);
+    var datos = {
+      name: this.state.name,
+      description: this.state.description,
+      age: this.state.age,
+      breed: this.state.breed,
+      sex: this.state.sex,
+      // vaccines: this.state.vaccines,
+      // accolades: this.state.accolades
+    };
+    console.log(datos);
     
     var token = await AsyncStorage.getItem('usertoken');
     var auth = 'Bearer ' + token;
@@ -62,21 +62,21 @@ export default class addPerro extends Component {
     myheader.append('Authorization', auth);
     myheader.append('Content-Type', 'application/json');
     myheader.append('Accept', 'application/json');
-    myheader.append('Content-Type', 'multipart/form-data');
+    // myheader.append('Content-Type', 'multipart/form-data');
 
-    const data = new FormData();
-    data.append('name', this.state.name);
-    data.append('description', this.state.description);
-    data.append('age', this.state.age);
-    data.append('breed', this.state.breed);
-    data.append('sex', this.state.sex);
-    data.append('photo', this.state.photo);
+    // const data = new FormData();
+    // data.append('name', this.state.name);
+    // data.append('description', this.state.description);
+    // data.append('age', this.state.age);
+    // data.append('breed', this.state.breed);
+    // data.append('sex', this.state.sex);
+    // data.append('photo', this.state.photo);
     
     fetch('https://tindog-api.herokuapp.com/api/v1/user/dogs',{
       method: 'POST',
       headers: myheader,
-      // body: JSON.stringify(datos)
-      body: data
+      body: JSON.stringify(datos)
+      // body: data
     }).then((response) => response.json())
       .then((responseJson) => {
         console.log(responseJson);

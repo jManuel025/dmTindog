@@ -4,6 +4,7 @@ import MainNavigator from './navigation/MainNavigator';
 
 export default class App extends Component {
   render() {
+    console.disableYellowBox = true;
     return (
       <View style={styles.container}>
         <MainNavigator/>
